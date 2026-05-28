@@ -706,8 +706,8 @@ export default function App() {
               {selectedGame.playUrl ? (
                 <iframe 
                   ref={iframeRef}
-                  key={`${selectedGame.id}-${Date.now()}`}
-                  src={`${selectedGame.playUrl}?nocache=${Date.now()}`}
+                  key={selectedGame.id}
+                  src={selectedGame.playUrl}
                   className="w-full h-full border-none shadow-2xl"
                   allowFullScreen
                   sandbox="allow-scripts allow-same-origin allow-forms allow-downloads allow-modals"
