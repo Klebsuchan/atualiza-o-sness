@@ -709,6 +709,7 @@ export default function App() {
                   key={selectedGame.id}
                   src={selectedGame.playUrl}
                   className="w-full h-full border-none shadow-2xl"
+                  allow="autoplay; encrypted-media"
                   allowFullScreen
                   sandbox="allow-scripts allow-same-origin allow-forms allow-downloads allow-modals"
                   onLoad={() => {
