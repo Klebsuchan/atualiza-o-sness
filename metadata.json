@@ -1,0 +1,6 @@
+{
+  "name": "Wonder SNES Cloud",
+  "description": "A cloud gaming UI dashboard for SNES infrastructure featuring an immersive design theme.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

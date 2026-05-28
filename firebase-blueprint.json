@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile data.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "number", "description": "Timestamp" },
+        "lastLoginAt": { "type": "number", "description": "Timestamp" }
+      },
+      "required": ["userId", "email", "createdAt", "lastLoginAt"]
+    },
+    "UserGame": {
+      "title": "UserGame",
+      "description": "A game saved or played by the user.",
+      "type": "object",
+      "properties": {
+        "gameId": { "type": "string" },
+        "title": { "type": "string" },
+        "lastPlayedAt": { "type": "number", "description": "Timestamp" },
+        "isSaved": { "type": "boolean" },
+        "thumbnailUrl": { "type": "string" }
+      },
+      "required": ["gameId", "title", "lastPlayedAt", "isSaved", "thumbnailUrl"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Stores user profile information."
+    },
+    "users/{userId}/games/{gameId}": {
+      "schema": { "$ref": "#/entities/UserGame" },
+      "description": "Stores specific games played or saved by a user."
+    }
+  }
+}

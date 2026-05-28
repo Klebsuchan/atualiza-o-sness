@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-xbox-green: #107c10;
+  --color-xbox-gray-card: #1f1f1f;
+  --color-xbox-gray-hover: #2d2d2d;
+  --color-xbox-bg: #050505;
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --color-text-dim: #a0a0a0;
+  --font-sans: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-xbox-bg text-white font-sans antialiased selection:bg-xbox-green selection:text-white;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-glass backdrop-blur-[10px] border border-glass-border;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom scrollbar for Xbox look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #107c10;
+}
