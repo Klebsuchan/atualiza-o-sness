@@ -1,66 +1,51 @@
 const fs = require('fs');
+let code = fs.readFileSync('src/App.tsx', 'utf8');
 
-let content = fs.readFileSync('src/contexts/LanguageContext.tsx', 'utf-8');
+code = code.replace(
+    'import { LandingPage } from "./components/LandingPage";',
+    'import { LandingPage } from "./components/LandingPage";\nimport { useLanguage } from "./contexts/LanguageContext";'
+);
 
-const ptAdditions = `
-    'loading.sync': 'SINCRONIZANDO REPOSITÓRIOS...',
-    'loading.real_lib': 'Carregando Biblioteca Real',
-    'app.controller_connected': 'Controle Conectado',
-    'auth.not_connected': 'Conta não conectada',
-    'auth.login_reason': 'Faça login com o Google para salvar o seu progresso na Nuvem em qualquer jogo, visualizar seu histórico, e manter um backup seguro online sincronizado.',
-    'error.title': 'Erro:',
-    'error.open_new_window': 'Para contornar, você pode abrir este app em uma',
-    'error.new_window_link': 'nova janela',
-    'error.btn_new_window': '↗️ Abrir em Nova Janela',
-    'profile.saved': 'Salvo',
-    'profile.no_saves': 'Você ainda não tem jogos salvos na nuvem.',
-    'profile.no_saves_desc': 'Abra um jogo e clique em "Salvar Progresso" para sincronizá-lo aqui.',
-    'ps1.desc': 'Reviva a era de ouro dos jogos 3D. Selecione um jogo abaixo e comece a jogar imediatamente no navegador.',
-    'snes.desc': 'A era de ouro dos 16-bits. Clássicos inesquecíveis.',
-    'mega.desc': 'Velocidade e atitude. Reviva a era da Sega.',
-    'search.not_found': 'Nenhum jogo encontrado',
-    'search.not_found_desc': 'Não encontramos resultados para "{searchQuery}". Tente usar palavras-chave diferentes.',
-    'game.developer': 'Desenvolvedora',
-    'game.platform': 'Plataforma',
-    'game.cloud_session': 'Sessão de Nuvem Ativa',
-    'game.save_cloud': 'Salvar na Cloud',
-    'game.btn_save': 'SALVAR',
-    'game.rom_not_connected': 'ROM não conectada',
-    'game.controls_auto': '🎮 CONTROLE AUTO-DETECTADO • PADRÃO SUPER NINTENDO (A CONFIRMA, B VOLTA)',
-    'game.controls_manual': 'CONTROLES: SETAS = MOVER • X/S = A/B • D/C = X/Y • ENTER = START • SHIFT = SELECT',
-    'app.see_all': 'Ver todos',
-`;
+code = code.replace(
+    'export default function App() {',
+    'export default function App() {\n  const { t, language, setLanguage } = useLanguage();'
+);
 
-const enAdditions = `
-    'loading.sync': 'SYNCHRONIZING REPOSITORIES...',
-    'loading.real_lib': 'Loading Real Library',
-    'app.controller_connected': 'Controller Connected',
-    'auth.not_connected': 'Account not connected',
-    'auth.login_reason': 'Sign in with Google to save your cloud progress in any game, view your history, and keep a secure online backup synchronized.',
-    'error.title': 'Error:',
-    'error.open_new_window': 'To bypass this, you can open this app in a',
-    'error.new_window_link': 'new window',
-    'error.btn_new_window': '↗️ Open in New Window',
-    'profile.saved': 'Saved',
-    'profile.no_saves': 'You don\'t have any games saved in the cloud yet.',
-    'profile.no_saves_desc': 'Open a game and click "Save Progress" to sync it here.',
-    'ps1.desc': 'Relive the golden era of 3D games. Select a game below and start playing immediately in the browser.',
-    'snes.desc': 'The 16-bit golden era. Unforgettable classics.',
-    'mega.desc': 'Speed and attitude. Relive the Sega era.',
-    'search.not_found': 'No games found',
-    'search.not_found_desc': 'We didn\'t find results for "{searchQuery}". Try using different keywords.',
-    'game.developer': 'Developer',
-    'game.platform': 'Platform',
-    'game.cloud_session': 'Active Cloud Session',
-    'game.save_cloud': 'Save to Cloud',
-    'game.btn_save': 'SAVE',
-    'game.rom_not_connected': 'ROM not connected',
-    'game.controls_auto': '🎮 CONTROLLER AUTO-DETECTED • SUPER NINTENDO STANDARD (A CONFIRM, B BACK)',
-    'game.controls_manual': 'CONTROLS: ARROWS = MOVE • X/S = A/B • D/C = X/Y • ENTER = START • SHIFT = SELECT',
-    'app.see_all': 'See all',
-`;
+// Menu translations
+code = code.replace('Buscar jogos...', '{t("app.search")}');
+code = code.replace('Início', '{t("app.home")}');
+code = code.replace('Super Nintendo', '{t("app.nintendo")}');
+code = code.replace('Mega Drive', '{t("app.sega")}');
+code = code.replace('PlayStation 1', '{t("app.playstation")}');
+code = code.replace('Perfil', '{t("app.profile")}');
+code = code.replace('Em Destaque', '{t("app.featured")}');
+code = code.replace('Continuar Jogando', '{t("app.continue")}');
+code = code.replace('Catálogo Completo', '{t("app.catalog")}');
 
-content = content.replace(/(\'nav\.saiba_mais\': \'Saiba Mais\',)/, `$1\n${ptAdditions}`);
-content = content.replace(/(\'nav\.saiba_mais\': \'Learn More\',)/, `$1\n${enAdditions}`);
+// Profile section
+code = code.replace('Seu Perfil Retro', '{t("profile.title")}');
+code = code.replace('Faça login para salvar seu progresso na nuvem, ganhar XP e muito mais!', '{t("profile.login_prompt")}');
+code = code.replace('Entrar com Google', '{t("profile.login_btn")}');
+code = code.replace('Estatísticas', '{t("profile.stats")}');
+code = code.replace('Dias Jogados', '{t("profile.days_played")}');
+code = code.replace('Experiência', '{t("profile.xp")}');
+code = code.replace('Nível', '{t("profile.level")}');
+code = code.replace('Jogos Salvos', '{t("profile.saved_games")}');
+code = code.replace('Sair da Conta', '{t("profile.logout")}');
 
-fs.writeFileSync('src/contexts/LanguageContext.tsx', content);
+// Game play section
+code = code.replace('SALVAR NA NUVEM', '{t("game.save_progress")}');
+code = code.replace('SALVANDO...', '{t("game.saving")}');
+code = code.replace('ENCERRAR SESSÃO', '{t("game.end_session")}');
+code = code.replace('>SAIR<', '>{t("game.exit")}<');
+code = code.replace('INICIAR GAMEPLAY', '{t("game.start")}');
+code = code.replace('Jogar', '{t("app.play")}'); // Watch out for multiple replaces
+
+// Language Toggle in top bar
+// Find a place to put the toggle in App.tsx top bar. Wait, the user might want it there too. Let's add it next to the search input
+code = code.replace(
+    '</form>',
+    '</form>\n          <button onClick={() => setLanguage(language === "pt" ? "en" : "pt")} className="flex items-center justify-center w-10 h-10 bg-glass text-zinc-400 hover:text-white rounded-xl transition-all font-bold uppercase">{language}</button>'
+);
+
+fs.writeFileSync('src/App.tsx', code);
