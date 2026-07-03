@@ -16,9 +16,9 @@ export function LandingPage({ onEnter }: { onEnter: () => void }) {
     <div className="min-h-[100dvh] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-900 via-black to-black text-white flex flex-col font-sans overflow-y-auto no-scrollbar">
       {/* Header */}
       <header className="p-6 md:px-12 flex items-center justify-between z-50">
-        <div className="flex items-center gap-3 text-xbox-green">
-          <Gamepad2 className="w-8 h-8" />
-          <span className="text-xl font-bold tracking-tight text-white">Wonder<span className="text-xbox-green">Snes</span></span>
+        <div className="flex items-center gap-3 text-emerald-500">
+          <Cloud className="w-8 h-8" />
+          <span className="text-xl font-bold tracking-tight text-white">Wonder<span className="text-emerald-500">Games</span></span>
         </div>
       </header>
 
@@ -41,7 +41,7 @@ export function LandingPage({ onEnter }: { onEnter: () => void }) {
             </span>
           </h1>
           <p className="text-base sm:text-lg md:text-2xl text-zinc-400 mb-8 md:mb-10 max-w-2xl mx-auto font-medium leading-relaxed px-2">
-            Uma plataforma em nuvem elegante com a biblioteca definitiva do Super Nintendo. Salve seu progresso online e jogue de qualquer lugar.
+            Uma plataforma em nuvem elegante com a biblioteca definitiva de Super Nintendo, Sega Mega Drive e PlayStation 1. Salve seu progresso e jogue de qualquer lugar.
           </p>
           
           <motion.button
@@ -99,11 +99,11 @@ export function LandingPage({ onEnter }: { onEnter: () => void }) {
           </div>
           <div className="flex flex-col items-center text-center md:items-start md:text-left gap-3 md:gap-4 glass md:border-none p-6 md:p-0 rounded-2xl md:bg-transparent">
             <div className="bg-white/5 p-3 md:p-4 rounded-xl md:rounded-2xl w-fit">
-              <Camera className="w-6 h-6 md:w-8 md:h-8 text-pink-400" />
+              <Gamepad2 className="w-6 h-6 md:w-8 md:h-8 text-pink-400" />
             </div>
-            <h3 className="text-lg md:text-xl font-bold text-white">Galerias Alternativas</h3>
+            <h3 className="text-lg md:text-xl font-bold text-white">Múltiplas Plataformas</h3>
             <p className="text-sm md:text-base text-zinc-400 leading-relaxed">
-              Respeitando as políticas rígidas de Direitos Autorais do Google Cloud, não hospedamos capas diretas dos jogos. Usamos imagens fotográficas nostálgicas equivalentes (Pexels).
+              Desfrute de milhares de títulos inesquecíveis do Super Nintendo (SNES), da velocidade do Sega Mega Drive e dos clássicos em 3D do PlayStation 1.
             </p>
           </div>
         </div>
@@ -120,7 +120,7 @@ export function LandingPage({ onEnter }: { onEnter: () => void }) {
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-3 md:mb-4 tracking-tight">Ajude a manter a Plataforma no ar!</h2>
             <p className="text-sm sm:text-base text-zinc-400 mb-6 md:mb-8 leading-relaxed md:text-lg">
-              O <strong>WonderSnes Cloud</strong> é um espaço feito de fãs para fãs. 
+              O <strong>Wonder Games Cloud</strong> é um espaço feito de fãs para fãs. 
               Tudo aqui tem um custo mensal considerável com provedores, armazenamento de dados e largura de banda na nuvem.
               <br /><br />
               Para garantir que o projeto cumpra a missão de conectar gerações com a nostalgia sempre online e receba cada vez mais melhorias, <strong>qualquer contribuição via PIX é incrivelmente valiosa</strong>. Faça parte do suporte desta jornada!
@@ -157,8 +157,19 @@ export function LandingPage({ onEnter }: { onEnter: () => void }) {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 text-center text-zinc-600 text-xs font-medium border-t border-white/10">
-        <p>WonderSnes Cloud © {new Date().getFullYear()}. Feito com paixão pelos retro games.</p>
+      <footer className="py-8 text-center text-zinc-650 text-xs font-medium border-t border-white/10 flex flex-col gap-2 items-center">
+        <p>Wonder Games Cloud © {new Date().getFullYear()}. Feito com paixão pelos retro games.</p>
+        <p>
+          Desenvolvedor:{" "}
+          <a 
+            href="https://portfolio-braian-three.vercel.app/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-zinc-400 hover:text-emerald-400 font-bold underline underline-offset-4 transition-all duration-300"
+          >
+            Braian Kmdc
+          </a>
+        </p>
       </footer>
     </div>
   );

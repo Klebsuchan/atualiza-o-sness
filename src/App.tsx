@@ -50,7 +50,7 @@ export default function App() {
   const [isLoadingGames, setIsLoadingGames] = useState(true);
   const [liveGames, setLiveGames] = useState<Game[]>([]);
   const [livePS1Games, setLivePS1Games] = useState<Game[]>([]);
-  const { user, loginWithGoogle, logout, loading, error } = useAuth();
+  const { user, loginWithGoogle, logout, loading, error, userStats } = useAuth();
   
   const [selectedGame, setSelectedGame] = useState<Game | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -187,6 +187,8 @@ export default function App() {
         
         <div className="flex md:flex-col gap-6 md:gap-8 items-center justify-around w-full md:w-auto">
           <NavItem icon={Home} label="Home" active={activeTab === "home"} onClick={() => setActiveTab("home")} />
+          <NavItem icon={Gamepad2} label="SNES" active={activeTab === "snes"} onClick={() => setActiveTab("snes")} />
+          <NavItem icon={Gamepad2} label="Mega Drive" active={activeTab === "megadrive"} onClick={() => setActiveTab("megadrive")} />
           <NavItem icon={Library} label="Biblioteca" active={activeTab === "library"} onClick={() => setActiveTab("library")} />
           <NavItem icon={Radio} label="PS1" active={activeTab === "ps1"} onClick={() => setActiveTab("ps1")} />
           <NavItem icon={Search} label="Buscar" active={activeTab === "search"} onClick={() => setActiveTab("search")} />
@@ -218,7 +220,7 @@ export default function App() {
               <Search className="w-4 h-4 text-white/50" />
               <input 
                 type="text" 
-                placeholder="Buscar jogos do Super Nintendo..." 
+                placeholder="Buscar jogos clássicos..." 
                 value={searchQuery}
                 onChange={(e) => {setSearchQuery(e.target.value); setActiveTab("search");}}
                 className="bg-transparent border-none outline-none text-sm w-full placeholder:text-text-dim"
@@ -276,7 +278,7 @@ export default function App() {
                   transition={{ delay: 0.2 }}
                 >
                   <div className="flex items-center gap-2 mb-3 md:mb-4">
-                    <span className="bg-xbox-green px-1.5 md:px-2 py-0.5 rounded text-[8px] md:text-[10px] font-bold uppercase tracking-wider shadow-[0_0_15px_rgba(16,124,16,0.5)]">SNES Classic</span>
+                    <span className="bg-xbox-green px-1.5 md:px-2 py-0.5 rounded text-[8px] md:text-[10px] font-bold uppercase tracking-wider shadow-[0_0_15px_rgba(16,124,16,0.5)]">{featuredGame.system === 'PS1' ? 'PS1 Classic' : featuredGame.system === 'Mega Drive' ? 'Mega Drive Classic' : 'SNES Classic'}</span>
                     <span className="flex items-center gap-1 text-[10px] md:text-xs font-medium text-yellow-400">
                       <Star className="w-3 h-3 fill-current" /> {featuredGame.rating}
                     </span>
@@ -337,29 +339,64 @@ export default function App() {
               </div>
             ) : (
               <div>
-                <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 gap-6 glass p-6 md:p-8 rounded-2xl">
-                  <div className="flex items-center gap-6">
-                    <div className="w-20 h-20 md:w-24 md:h-24 rounded-full border-4 border-xbox-green shadow-[0_0_20px_rgba(16,124,16,0.5)] overflow-hidden">
-                      <img src={user.photoURL || "https://ui-avatars.com/api/?name=Guest&background=107C10&color=fff"} alt="Profile" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
-                    </div>
-                    <div>
-                      <h2 className="text-2xl md:text-3xl font-extrabold">{user.displayName}</h2>
-                      <p className="text-text-dim">{user.email}</p>
-                      <div className="mt-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-xbox-green">
-                        <Cloud className="w-4 h-4 fill-current" />
-                        Conta Conectada à Cloud
+                <div className="flex flex-col mb-12 gap-6 glass p-6 md:p-8 rounded-2xl border border-xbox-green/30">
+                  <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 w-full">
+                    <div className="flex items-center gap-6">
+                      <div className="relative">
+                        <div className="w-20 h-20 md:w-24 md:h-24 rounded-full border-4 border-xbox-green shadow-[0_0_20px_rgba(16,124,16,0.5)] overflow-hidden">
+                          <img src={user.photoURL || "https://ui-avatars.com/api/?name=Guest&background=107C10&color=fff"} alt="Profile" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                        </div>
+                        {userStats && (
+                          <div className="absolute -bottom-2 -right-2 bg-xbox-green text-white font-extrabold text-xs md:text-sm px-2 py-1 rounded-full border-2 border-black shadow-[0_0_10px_rgba(16,124,16,1)]">
+                            LVL {userStats.level}
+                          </div>
+                        )}
+                      </div>
+                      <div>
+                        <h2 className="text-2xl md:text-3xl font-extrabold">{user.displayName}</h2>
+                        <p className="text-text-dim">{user.email}</p>
+                        <div className="mt-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-xbox-green">
+                          <Cloud className="w-4 h-4 fill-current" />
+                          Conta Conectada à Cloud
+                        </div>
                       </div>
                     </div>
+                    <button 
+                      onClick={logout}
+                      className="flex items-center gap-2 bg-red-500/10 hover:bg-red-500 text-red-500 hover:text-white px-5 py-2.5 rounded-md font-bold text-xs uppercase tracking-widest transition-all"
+                    >
+                      <LogOut className="w-4 h-4" /> Sair
+                    </button>
                   </div>
-                  <button 
-                    onClick={logout}
-                    className="flex items-center gap-2 bg-red-500/10 hover:bg-red-500 text-red-500 hover:text-white px-5 py-2.5 rounded-md font-bold text-xs uppercase tracking-widest transition-all"
-                  >
-                    <LogOut className="w-4 h-4" /> Sair
-                  </button>
+                  
+                  {userStats && (
+                    <div className="mt-4 pt-6 border-t border-white/10 w-full flex flex-col gap-4">
+                      <div className="flex justify-between items-center text-sm font-bold uppercase tracking-wider">
+                        <span className="text-white/60">Experiência</span>
+                        <span className="text-xbox-green">{userStats.xp} / {userStats.nextLevelXp} XP</span>
+                      </div>
+                      <div className="w-full bg-black/50 rounded-full h-3 border border-white/10 overflow-hidden relative">
+                        <div 
+                          className="bg-gradient-to-r from-emerald-600 to-xbox-green h-full rounded-full relative transition-all duration-1000 ease-out" 
+                          style={{ width: `${Math.min(100, Math.max(0, ((userStats.xp - ((userStats.level - 1) * 500)) / 500) * 100))}%` }}
+                        >
+                          <div className="absolute inset-0 w-full h-full bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.2)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px] animate-shimmer"></div>
+                        </div>
+                      </div>
+                      <div className="flex gap-4 mt-2">
+                        <div className="flex-1 bg-black/30 p-4 rounded-xl border border-white/5 text-center">
+                          <p className="text-3xl font-black text-white mb-1">{userStats.playDaysCount}</p>
+                          <p className="text-[10px] md:text-xs text-text-dim uppercase tracking-widest font-bold">Dias Jogados</p>
+                        </div>
+                        <div className="flex-1 bg-black/30 p-4 rounded-xl border border-white/5 text-center">
+                          <p className="text-3xl font-black text-white mb-1">{savedGames.length}</p>
+                          <p className="text-[10px] md:text-xs text-text-dim uppercase tracking-widest font-bold">Jogos Salvos</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
-                
-                <div className="mb-4">
+                               <div className="mb-4">
                   <h3 className="text-xl font-bold flex items-center gap-2 mb-6">
                     <Gamepad2 className="w-6 h-6 text-xbox-green" /> Jogos Salvos ({savedGames.length})
                   </h3>
@@ -367,8 +404,11 @@ export default function App() {
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
                       {savedGames.map((sg) => (
                         <div key={sg.id} className="group cursor-pointer" onClick={() => {
-                          const found = [...GAMES, ...ps1Games].find(g => g.id === sg.gameId);
-                           if (found) setSelectedGame(found);
+                          const found = [...liveGames, ...livePS1Games].find(g => g.id === sg.gameId) || [...GAMES, ...ps1Games].find(g => g.id === sg.gameId); 
+                          if (found) {
+                            setSelectedGame(found);
+                            setIsPlaying(true);
+                          }
                         }}>
                           <div className="relative aspect-[3/4] rounded-xl overflow-hidden mb-2 border border-glass-border shadow-lg transition-all duration-300 group-hover:border-xbox-green/50 bg-black/50">
                             <PexelsImage 
@@ -379,9 +419,14 @@ export default function App() {
                               alt={sg.title}
                               className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500 opacity-90 group-hover:opacity-100"
                             />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                              <button className="bg-xbox-green text-white p-2 rounded-full w-fit mx-auto mb-2 shadow-[0_0_15px_rgba(16,124,16,0.6)] hover:scale-110 transition-transform">
+                                <Play className="w-6 h-6 fill-current pl-1" />
+                              </button>
+                            </div>
                             <div className="absolute top-2 right-2 bg-xbox-green text-white px-2 py-0.5 rounded text-[8px] uppercase font-bold shadow-lg">Salvo</div>
                           </div>
-                          <h4 className="font-semibold text-xs tracking-tight line-clamp-1">{sg.title}</h4>
+                          <h4 className="font-semibold text-xs tracking-tight line-clamp-1 group-hover:text-xbox-green transition-colors">{sg.title}</h4>
                         </div>
                       ))}
                     </div>
@@ -443,10 +488,16 @@ export default function App() {
               onSeeAll={() => { setSearchQuery("Esportes"); setActiveTab("search"); }}
             />
             <GameRow 
-              title="Biblioteca Extendida SNES" 
+              title="Biblioteca Extendida" 
               games={GAMES.filter(g => g.category === "Outros").slice(0, 100)} 
               onGameClick={setSelectedGame}
               onSeeAll={() => { setActiveTab("library"); }}
+            />
+            <GameRow 
+              title="Clássicos do Sega Mega Drive" 
+              games={GAMES.filter(g => g.category === "Sega Mega Drive" || g.system === "Mega Drive")} 
+              onGameClick={setSelectedGame}
+              onSeeAll={() => { setActiveTab("megadrive"); }}
             />
           </div>
         )}
@@ -511,8 +562,126 @@ export default function App() {
           </div>
         )}
 
+        {activeTab === "snes" && !searchQuery && (
+          <div className="space-y-12 pb-24 pt-4">
+             <div className="px-4 md:px-8">
+               <div className="h-40 md:h-64 rounded-2xl overflow-hidden relative shadow-2xl border border-glass-border">
+                 <PexelsImage 
+                    queryName="super nintendo console retro"
+                    category="Gaming"
+                    orientation="landscape"
+                    fallbackUrl="https://images.pexels.com/photos/163077/mario-yoschi-figures-funny-163077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    alt="SNES"
+                    className="w-full h-full object-cover opacity-60"
+                 />
+                 <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent flex items-center p-8 md:p-12">
+                   <div>
+                     <h1 className="text-3xl md:text-5xl font-extrabold mb-2 text-white">Super Nintendo</h1>
+                     <p className="text-text-dim text-sm md:text-lg max-w-lg">A era de ouro dos 16-bits. Clássicos inesquecíveis.</p>
+                   </div>
+                 </div>
+               </div>
+             </div>
+
+             <div className="px-4 md:px-8">
+              <h2 className="text-xl md:text-2xl font-bold mb-6 flex items-center gap-2">
+                <Gamepad2 className="w-6 h-6 text-xbox-green" /> 
+                Biblioteca SNES
+              </h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6">
+                {liveGames.filter(g => g.system === "SNES").map((game) => (
+                  <div key={game.id} className="group cursor-pointer" onClick={() => setSelectedGame(game)}>
+                    <div className="relative aspect-[3/4] rounded-xl overflow-hidden mb-3 border border-glass-border shadow-lg transition-all duration-300 group-hover:border-xbox-green/50 bg-black/50">
+                      <PexelsImage 
+                        queryName={game.title}
+                        category={game.category}
+                        orientation="portrait"
+                        fallbackUrl={game.imageUrl} 
+                        alt={game.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500 opacity-90 group-hover:opacity-100"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                        <button className="bg-xbox-green text-white p-2 rounded-full w-fit ml-auto shadow-[0_0_15px_rgba(16,124,16,0.6)]">
+                          <Play className="w-4 h-4 fill-current" />
+                        </button>
+                      </div>
+                      <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded text-[10px] uppercase font-bold text-white border border-white/10">
+                        {game.system || "SNES"}
+                      </div>
+                    </div>
+                    <h3 className="font-semibold text-sm tracking-tight line-clamp-1 group-hover:text-white transition-colors">{game.title}</h3>
+                    <div className="flex items-center gap-2 mt-1">
+                      <span className="text-[10px] text-text-dim uppercase font-bold">{game.category}</span>
+                      {game.rating >= 4.7 && <span className="bg-xbox-green text-[8px] text-white px-1 rounded-sm font-bold uppercase">TOP</span>}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === "megadrive" && !searchQuery && (
+          <div className="space-y-12 pb-24 pt-4">
+             <div className="px-4 md:px-8">
+               <div className="h-40 md:h-64 rounded-2xl overflow-hidden relative shadow-2xl border border-glass-border">
+                 <PexelsImage 
+                    queryName="sega genesis mega drive console retro"
+                    category="Gaming"
+                    orientation="landscape"
+                    fallbackUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Sega-Mega-Drive-JP-Mk1-Console-Set.png/800px-Sega-Mega-Drive-JP-Mk1-Console-Set.png"
+                    alt="Mega Drive"
+                    className="w-full h-full object-cover opacity-60"
+                 />
+                 <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent flex items-center p-8 md:p-12">
+                   <div>
+                     <h1 className="text-3xl md:text-5xl font-extrabold mb-2 text-white">Sega Mega Drive</h1>
+                     <p className="text-text-dim text-sm md:text-lg max-w-lg">Velocidade e atitude. Reviva a era da Sega.</p>
+                   </div>
+                 </div>
+               </div>
+             </div>
+
+             <div className="px-4 md:px-8">
+              <h2 className="text-xl md:text-2xl font-bold mb-6 flex items-center gap-2">
+                <Gamepad2 className="w-6 h-6 text-xbox-green" /> 
+                Biblioteca Mega Drive
+              </h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6">
+                {liveGames.filter(g => g.system === "Mega Drive").map((game) => (
+                  <div key={game.id} className="group cursor-pointer" onClick={() => setSelectedGame(game)}>
+                    <div className="relative aspect-[3/4] rounded-xl overflow-hidden mb-3 border border-glass-border shadow-lg transition-all duration-300 group-hover:border-xbox-green/50 bg-black/50">
+                      <PexelsImage 
+                        queryName={game.title}
+                        category={game.category}
+                        orientation="portrait"
+                        fallbackUrl={game.imageUrl} 
+                        alt={game.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500 opacity-90 group-hover:opacity-100"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+                        <button className="bg-xbox-green text-white p-2 rounded-full w-fit ml-auto shadow-[0_0_15px_rgba(16,124,16,0.6)]">
+                          <Play className="w-4 h-4 fill-current" />
+                        </button>
+                      </div>
+                      <div className="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded text-[10px] uppercase font-bold text-white border border-white/10">
+                        {game.system || "Mega Drive"}
+                      </div>
+                    </div>
+                    <h3 className="font-semibold text-sm tracking-tight line-clamp-1 group-hover:text-white transition-colors">{game.title}</h3>
+                    <div className="flex items-center gap-2 mt-1">
+                      <span className="text-[10px] text-text-dim uppercase font-bold">{game.category}</span>
+                      {game.rating >= 4.7 && <span className="bg-xbox-green text-[8px] text-white px-1 rounded-sm font-bold uppercase">TOP</span>}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Library & Search Grid */}
-        {(activeTab === "library" || activeTab === "search" || searchQuery) && activeTab !== "profile" && activeTab !== "ps1" && (
+        {(activeTab === "library" || activeTab === "search" || searchQuery) && activeTab !== "profile" && activeTab !== "ps1" && activeTab !== "snes" && activeTab !== "megadrive" && (
           <div className="px-4 md:px-8 py-6 pb-24">
             <h2 className="text-xl md:text-2xl font-bold mb-6 flex items-center gap-2">
               <Gamepad2 className="w-6 h-6 text-xbox-green" /> 
@@ -566,6 +735,24 @@ export default function App() {
             )}
           </div>
         )}
+
+        {/* Footer */}
+        <footer className="mt-6 mb-24 py-6 text-center text-white/30 text-[11px] font-medium border-t border-white/5 flex flex-col sm:flex-row gap-2 sm:gap-6 justify-center items-center">
+          <span>Wonder Games Cloud © {new Date().getFullYear()}</span>
+          <span className="hidden sm:inline text-white/10">•</span>
+          <span>
+            Desenvolvedor:{" "}
+            <a 
+              href="https://portfolio-braian-three.vercel.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white/60 hover:text-xbox-green font-bold underline underline-offset-4 transition-all duration-300"
+              id="footer-developer-link"
+            >
+              Braian Kmdc
+            </a>
+          </span>
+        </footer>
       </main>
 
       {/* Game Details Overlay */}
@@ -616,7 +803,7 @@ export default function App() {
                       <span className="text-white font-bold">{selectedGame.rating}</span>
                     </div>
                     <span>•</span>
-                    <span className="px-1.5 py-0.5 border border-white/20 rounded text-[9px] md:text-[10px]">16-BIT CLASSIC</span>
+                    <span className="px-1.5 py-0.5 border border-white/20 rounded text-[9px] md:text-[10px]">{selectedGame.system === 'PS1' ? '32-BIT CLASSIC' : '16-BIT CLASSIC'}</span>
                   </div>
 
                   <p className="text-text-dim leading-relaxed mb-8 md:mb-auto text-sm md:text-lg">
@@ -626,11 +813,11 @@ export default function App() {
                   <div className="grid grid-cols-2 gap-4 mb-8 text-[10px] md:text-xs">
                     <div className="bg-white/5 p-3 rounded-lg border border-white/5">
                       <p className="text-xbox-green uppercase tracking-tighter mb-1 font-bold">Desenvolvedora</p>
-                      <p className="text-white font-medium">{selectedGame.system === 'PS1' ? 'Sony / Third Party' : 'Nintendo / Third Party'}</p>
+                      <p className="text-white font-medium">{selectedGame.system === 'PS1' ? 'Sony / Third Party' : selectedGame.system === 'Mega Drive' ? 'Sega / Third Party' : 'Nintendo / Third Party'}</p>
                     </div>
                     <div className="bg-white/5 p-3 rounded-lg border border-white/5">
                       <p className="text-xbox-green uppercase tracking-tighter mb-1 font-bold">Plataforma</p>
-                      <p className="text-white font-medium">{selectedGame.system === 'PS1' ? 'Playstation 1' : 'Super Nintendo'}</p>
+                      <p className="text-white font-medium">{selectedGame.system === 'PS1' ? 'PlayStation 1' : selectedGame.system === 'Mega Drive' ? 'Sega Mega Drive' : 'Super Nintendo'}</p>
                     </div>
                   </div>
 

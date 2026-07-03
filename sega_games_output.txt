@@ -1,0 +1,360 @@
+Processing https://www.retrogames.cc/genesis-games/007-shitou-the-duel-japan.html
+  {
+    id: "sega-007-shitou-the-duel-japan",
+    title: "Play Genesis 007 Shitou - The Duel (Japan) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis 007 Shitou - The Duel (Japan) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/29686-007-shitou-the-duel-japan.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/16-zhang-majiang-china-unl.html
+  {
+    id: "sega-16-zhang-majiang-china-unl",
+    title: "Play Genesis 16 Zhang Majiang (China) (Unl) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis 16 Zhang Majiang (China) (Unl) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/29802-16-zhang-majiang-china-unl.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/2020-toshi-super-baseball-japan.html
+  {
+    id: "sega-2020-toshi-super-baseball-japan",
+    title: "Play Genesis 2020 Toshi Super Baseball (Japan) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis 2020 Toshi Super Baseball (Japan) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/29980-2020-toshi-super-baseball-japan.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/30-day-project-revisited.html
+  {
+    id: "sega-30-day-project-revisited",
+    title: "Play Genesis 30 Day Project Revisited Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis 30 Day Project Revisited Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/45062-30-day-project-revisited.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/3-ninjas-kick-back-usa.html
+  {
+    id: "sega-3-ninjas-kick-back-usa",
+    title: "Play Genesis 3 Ninjas Kick Back (USA) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis 3 Ninjas Kick Back (USA) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/16726-3-ninjas-kick-back-usa.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/688-attack-sub-usa-europe.html
+  {
+    id: "sega-688-attack-sub-usa-europe",
+    title: "Play Genesis 688 Attack Sub (USA, Europe) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis 688 Attack Sub (USA, Europe) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/30106-688-attack-sub-usa-europe.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/6-pak-usa.html
+  {
+    id: "sega-6-pak-usa",
+    title: "Play Genesis 6-Pak (USA) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis 6-Pak (USA) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/16721-6-pak-usa.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/aaahh-real-monsters-usa-europe.html
+  {
+    id: "sega-aaahh-real-monsters-usa-europe",
+    title: "Play Genesis AAAHH!!! Real Monsters (USA, Europe) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis AAAHH!!! Real Monsters (USA, Europe) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/16727-aaahh-real-monsters-usa-europe.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/aa-harimanada-japan.html
+  {
+    id: "sega-aa-harimanada-japan",
+    title: "Play Genesis Aa Harimanada (Japan) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis Aa Harimanada (Japan) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/29807-aa-harimanada-japan.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/a-bugs-life-unl-usa.html
+  {
+    id: "sega-a-bugs-life-unl-usa",
+    title: "Play Genesis A Bug's Life (Unl) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis A Bug's Life (Unl) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/43831-a-bugs-life-unl-usa.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/action-52-usa-alt-unl.html
+  {
+    id: "sega-action-52-usa-alt-unl",
+    title: "Play Genesis Action 52 (USA) (Alt) (Unl) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis Action 52 (USA) (Alt) (Unl) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/30202-action-52-usa-alt-unl.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/action-52-usa-unl.html
+  {
+    id: "sega-action-52-usa-unl",
+    title: "Play Genesis Action 52 (USA) (Unl) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis Action 52 (USA) (Unl) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/30334-action-52-usa-unl.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/addams-family-the-usa-beta.html
+  {
+    id: "sega-addams-family-the-usa-beta",
+    title: "Play Genesis Addams Family, The (USA) (Beta) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis Addams Family, The (USA) (Beta) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/29848-addams-family-the-usa-beta.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/addams-family-the-usa-europe.html
+  {
+    id: "sega-addams-family-the-usa-europe",
+    title: "Play Genesis Addams Family, The (USA, Europe) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis Addams Family, The (USA, Europe) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/16952-addams-family-the-usa-europe.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/addams-family-values-europe-en-fr-de.html
+  {
+    id: "sega-addams-family-values-europe-en-fr-de",
+    title: "Play Genesis Addams Family Values (Europe) (En,Fr,De) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis Addams Family Values (Europe) (En,Fr,De) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/30520-addams-family-values-europe-en-fr-de.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/advanced-busterhawk-gleylancer-japan-en-by-mijet-v20061023.html
+  {
+    id: "sega-advanced-busterhawk-gleylancer-japan-en-by-mijet-v20061023",
+    title: "Play Genesis Advanced Busterhawk Gleylancer (Japan) [En by MIJET v20061023] Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis Advanced Busterhawk Gleylancer (Japan) [En by MIJET v20061023] Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/29754-advanced-busterhawk-gleylancer-japan-en-by-mijet-v20061023.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/advanced-busterhawk-gleylancer-japan.html
+  {
+    id: "sega-advanced-busterhawk-gleylancer-japan",
+    title: "Play Genesis Advanced Busterhawk Gleylancer (Japan) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis Advanced Busterhawk Gleylancer (Japan) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/28575-advanced-busterhawk-gleylancer-japan.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/advanced-daisenryaku-deutsch-dengeki-sakusen-japan-rev-a-en-by-nebelwurfer-v0-95-advanced-military-commander-incomplete.html
+  {
+    id: "sega-advanced-daisenryaku-deutsch-dengeki-sakusen-japan-rev-a-en-by-nebelwurfer-v0-95-advanced-military-commander-incomplete",
+    title: "Play Genesis Advanced Daisenryaku - Deutsch Dengeki Sakusen (Japan) (Rev A) [En by Nebelwurfer v0.95] (~Advanced Military Commander) (Incomplete) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis Advanced Daisenryaku - Deutsch Dengeki Sakusen (Japan) (Rev A) [En by Nebelwurfer v0.95] (~Advanced Military Commander) (Incomplete) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/30268-advanced-daisenryaku-deutsch-dengeki-sakusen-japan-rev-a-en-by-nebelwurfer-v0-95-advanced-military-commander-incomplete.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/advanced-daisenryaku-deutsch-dengeki-sakusen-japan-rev-a.html
+  {
+    id: "sega-advanced-daisenryaku-deutsch-dengeki-sakusen-japan-rev-a",
+    title: "Play Genesis Advanced Daisenryaku - Deutsch Dengeki Sakusen (Japan) (Rev A) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis Advanced Daisenryaku - Deutsch Dengeki Sakusen (Japan) (Rev A) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/30308-advanced-daisenryaku-deutsch-dengeki-sakusen-japan-rev-a.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/adventures-of-batman-robin-the-europe.html
+  {
+    id: "sega-adventures-of-batman-robin-the-europe",
+    title: "Play Genesis Adventures of Batman & Robin, The (Europe) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis Adventures of Batman & Robin, The (Europe) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/29974-adventures-of-batman-robin-the-europe.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/adventures-of-batman-robin-the-usa.html
+  {
+    id: "sega-adventures-of-batman-robin-the-usa",
+    title: "Play Genesis Adventures of Batman & Robin, The (USA) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis Adventures of Batman & Robin, The (USA) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/30132-adventures-of-batman-robin-the-usa.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/adventures-of-mighty-max-the-europe.html
+  {
+    id: "sega-adventures-of-mighty-max-the-europe",
+    title: "Play Genesis Adventures of Mighty Max, The (Europe) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis Adventures of Mighty Max, The (Europe) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/29618-adventures-of-mighty-max-the-europe.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/adventures-of-mighty-max-the-usa.html
+  {
+    id: "sega-adventures-of-mighty-max-the-usa",
+    title: "Play Genesis Adventures of Mighty Max, The (USA) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis Adventures of Mighty Max, The (USA) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/30053-adventures-of-mighty-max-the-usa.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/adventures-of-rocky-and-bullwinkle-and-friends-the-usa.html
+  {
+    id: "sega-adventures-of-rocky-and-bullwinkle-and-friends-the-usa",
+    title: "Play Genesis Adventures of Rocky and Bullwinkle and Friends, The (USA) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis Adventures of Rocky and Bullwinkle and Friends, The (USA) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/30336-adventures-of-rocky-and-bullwinkle-and-friends-the-usa.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/aerobiz-supersonic-usa.html
+  {
+    id: "sega-aerobiz-supersonic-usa",
+    title: "Play Genesis Aerobiz Supersonic (USA) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis Aerobiz Supersonic (USA) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/30050-aerobiz-supersonic-usa.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/aerobiz-usa.html
+  {
+    id: "sega-aerobiz-usa",
+    title: "Play Genesis Aerobiz (USA) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis Aerobiz (USA) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/28242-aerobiz-usa.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/aero-blasters-japan.html
+  {
+    id: "sega-aero-blasters-japan",
+    title: "Play Genesis Aero Blasters (Japan) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis Aero Blasters (Japan) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/30340-aero-blasters-japan.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/aero-the-acro-bat-2-europe.html
+  {
+    id: "sega-aero-the-acro-bat-2-europe",
+    title: "Play Genesis Aero the Acro-Bat 2 (Europe) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis Aero the Acro-Bat 2 (Europe) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/30537-aero-the-acro-bat-2-europe.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/aero-the-acro-bat-2-usa.html
+  {
+    id: "sega-aero-the-acro-bat-2-usa",
+    title: "Play Genesis Aero the Acro-Bat 2 (USA) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis Aero the Acro-Bat 2 (USA) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/16728-aero-the-acro-bat-2-usa.html"
+  },
+Processing https://www.retrogames.cc/genesis-games/aero-the-acro-bat-europe.html
+  {
+    id: "sega-aero-the-acro-bat-europe",
+    title: "Play Genesis Aero the Acro-Bat (Europe) Online in your browser - RetroGames.cc",
+    category: "Aventura",
+    description: "Jogue Play Genesis Aero the Acro-Bat (Europe) Online in your browser - RetroGames.cc diretamente no seu navegador!",
+    rating: 4.5,
+    system: "Mega Drive",
+    imageUrl: "https://picsum.photos/400/300",
+    bannerUrl: "https://picsum.photos/400/300",
+    playUrl: "https://ww.retrogames.cc/embed/16848-aero-the-acro-bat-europe.html"
+  },
