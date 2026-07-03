@@ -127,7 +127,7 @@ export function LandingPage({ onEnter }: { onEnter: () => void }) {
       {/* Header */}
       <header className="relative z-50 flex items-center justify-between px-6 py-4 md:px-12 bg-black/40 backdrop-blur-md border-b border-white/5">
         <div className="flex items-center gap-3 text-emerald-500">
-          <Cloud className="w-8 h-8" />
+          <img src="/logo.png" alt="Wonder Games Cloud" className="w-12 h-12 object-contain" />
           <span className="text-xl font-bold tracking-tight text-white">Wonder<span className="text-[#15b045]">Games</span></span>
         </div>
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-300">

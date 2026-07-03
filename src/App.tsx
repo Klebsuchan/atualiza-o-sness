@@ -207,7 +207,7 @@ export default function App() {
       {/* Sidebar Rail (Tablet & PC) / Bottom Nav (Mobile) */}
       <nav className="w-full min-h-[calc(4rem+env(safe-area-inset-bottom,0px))] md:min-h-0 md:h-full md:w-20 order-last md:order-first flex md:flex-col items-center justify-around md:justify-start py-0 md:py-8 border-t md:border-t-0 md:border-r border-white/5 bg-black/40 backdrop-blur-2xl z-50 pb-[env(safe-area-inset-bottom,0px)]">
         <div className="hidden md:block mb-12">
-          <Gamepad2 className="w-8 h-8 text-xbox-green" />
+          <img src="/logo.png" alt="Wonder Games Cloud" className="w-10 h-10 object-contain" />
         </div>
         
         <div className="flex md:flex-col gap-6 md:gap-8 items-center justify-around w-full md:w-auto">
