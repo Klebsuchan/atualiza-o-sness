@@ -1,6 +1,34 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Gamepad2, Cloud, Heart, Copy, CheckCircle2, Play, ChevronDown, Zap, Camera } from "lucide-react";
+import { Gamepad2, Cloud, Heart, Copy, CheckCircle2, Play, ChevronDown, Zap, User } from "lucide-react";
+
+const PixelHeart = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 11 10" className={`pixel-outline ${className}`} xmlns="http://www.w3.org/2000/svg" style={{ shapeRendering: 'crispEdges' }}>
+    <path d="M2,0 h2 v1 h-2 z M7,0 h2 v1 h-2 z M1,1 h4 v1 h-4 z M6,1 h4 v1 h-4 z M0,2 h11 v1 h-11 z M0,3 h11 v1 h-11 z M0,4 h11 v1 h-11 z M1,5 h9 v1 h-9 z M2,6 h7 v1 h-7 z M3,7 h5 v1 h-5 z M4,8 h3 v1 h-3 z M5,9 h1 v1 h-1 z" fill="#e52521" />
+  </svg>
+);
+
+const PixelStar = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 11 11" className={`pixel-outline ${className}`} xmlns="http://www.w3.org/2000/svg" style={{ shapeRendering: 'crispEdges' }}>
+    <path d="M5,0 h1 v3 h-1 z M4,3 h3 v1 h-3 z M0,4 h11 v1 h-11 z M1,5 h9 v1 h-9 z M2,6 h7 v1 h-7 z M3,7 h5 v1 h-5 z M2,8 h2 v1 h-2 z M7,8 h2 v1 h-2 z M1,9 h2 v1 h-2 z M8,9 h2 v1 h-2 z" fill="#FFD700" />
+  </svg>
+);
+
+const PixelCoin = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 8 10" className={`pixel-outline ${className}`} xmlns="http://www.w3.org/2000/svg" style={{ shapeRendering: 'crispEdges' }}>
+    <path d="M2,0 h4 v1 h-4 z M1,1 h6 v1 h-6 z M0,2 h8 v6 h-8 z M1,8 h6 v1 h-6 z M2,9 h4 v1 h-4 z" fill="#FFD700" />
+    <path d="M2,2 h1 v6 h-1 z" fill="#FFF280" />
+    <path d="M5,2 h1 v6 h-1 z" fill="#B8860B" />
+  </svg>
+);
+
+const RedButton = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 16 12" className={`pixel-outline ${className}`} xmlns="http://www.w3.org/2000/svg" style={{ shapeRendering: 'crispEdges' }}>
+    <path d="M4,0 h8 v1 h-8 z M2,1 h12 v1 h-12 z M1,2 h14 v5 h-14 z M0,7 h16 v2 h-16 z M1,9 h14 v2 h-14 z M2,11 h12 v1 h-12 z" fill="#a0a0a0" />
+    <path d="M5,1 h6 v1 h-6 z M3,2 h10 v2 h-10 z M2,4 h12 v3 h-12 z" fill="#e52521" />
+    <path d="M4,3 h3 v1 h-3 z M3,4 h2 v1 h-2 z" fill="#ff7070" />
+  </svg>
+);
 
 export function LandingPage({ onEnter }: { onEnter: () => void }) {
   const [copied, setCopied] = useState(false);
@@ -13,34 +41,138 @@ export function LandingPage({ onEnter }: { onEnter: () => void }) {
   };
 
   return (
-    <div className="min-h-[100dvh] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-900 via-black to-black text-white flex flex-col font-sans overflow-y-auto no-scrollbar">
+    <div className="min-h-[100dvh] bg-[#050505] text-white flex flex-col font-sans overflow-y-auto no-scrollbar relative">
+      <style>
+        {`
+          .pixel-outline {
+            filter: drop-shadow(2px 0 0 #000) drop-shadow(-2px 0 0 #000) drop-shadow(0 2px 0 #000) drop-shadow(0 -2px 0 #000);
+          }
+        `}
+      </style>
+      
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute top-[20%] left-[20%] w-96 h-96 bg-emerald-900/30 blur-[120px] rounded-full mix-blend-screen"></div>
+        <div className="absolute top-[40%] right-[20%] w-96 h-96 bg-purple-900/20 blur-[120px] rounded-full mix-blend-screen"></div>
+        <div className="absolute bottom-[10%] left-[50%] w-[40rem] h-[20rem] bg-xbox-green/10 blur-[150px] rounded-full mix-blend-screen -translate-x-1/2"></div>
+        
+        {/* Consoles Background */}
+        <motion.img 
+          initial={{ y: 0, rotate: -12 }}
+          animate={{ y: [-15, 15, -15], rotate: [-12, -15, -12] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Nintendo-Super-Famicom-Set-FL.jpg" className="absolute top-[-5%] left-[-15%] w-[400px] md:w-[600px] opacity-20 mix-blend-lighten" alt="SNES" />
+        <motion.img 
+          initial={{ y: 0, rotate: 12 }}
+          animate={{ y: [15, -15, 15], rotate: [12, 15, 12] }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Sega-Mega-Drive-JP-Mk1-Console-Set.jpg" className="absolute top-[-5%] right-[-15%] w-[400px] md:w-[600px] opacity-20 mix-blend-lighten" alt="Mega Drive" />
+        <motion.img 
+          initial={{ y: 0, rotate: -6 }}
+          animate={{ y: [-10, 10, -10], rotate: [-6, -3, -6] }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          src="https://upload.wikimedia.org/wikipedia/commons/9/95/PSX-Console-wController.jpg" className="absolute bottom-[5%] right-[-10%] w-[350px] md:w-[500px] opacity-20 mix-blend-lighten" alt="PS1" />
+        <motion.img 
+          initial={{ y: 0, rotate: 6 }}
+          animate={{ y: [10, -10, 10], rotate: [6, 9, 6] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+          src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Nintendo-Super-Famicom-Set-FL.jpg" className="absolute bottom-[-10%] left-[-10%] w-[300px] md:w-[450px] opacity-20 mix-blend-lighten" alt="SNES" />
+
+        {/* Floating Pixels */}
+        <motion.div animate={{ y: [-5, 5, -5] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} className="absolute top-[18%] left-[8%] transform -rotate-12">
+          <PixelHeart className="w-10 h-10 md:w-16 md:h-16" />
+        </motion.div>
+        <motion.div animate={{ y: [5, -5, 5] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }} className="absolute top-[15%] left-[15%] transform rotate-12 opacity-80">
+          <PixelHeart className="w-6 h-6 md:w-10 md:h-10" />
+        </motion.div>
+        
+        <motion.div animate={{ y: [-8, 8, -8] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }} className="absolute top-[28%] left-[12%] transform rotate-12">
+          <PixelStar className="w-12 h-12 md:w-20 md:h-20" />
+        </motion.div>
+        
+        <motion.div animate={{ y: [8, -8, 8] }} transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }} className="absolute top-[32%] right-[8%] transform -rotate-12">
+          <PixelCoin className="w-10 h-12 md:w-14 md:h-16" />
+        </motion.div>
+        <motion.div animate={{ y: [-6, 6, -6] }} transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 2 }} className="absolute top-[28%] right-[14%] transform rotate-6 opacity-90">
+          <PixelCoin className="w-8 h-10 md:w-10 md:h-12" />
+        </motion.div>
+        
+        <motion.div animate={{ y: [10, -10, 10] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.8 }} className="absolute bottom-[35%] right-[10%] transform -rotate-6">
+          <PixelStar className="w-10 h-10 md:w-16 md:h-16" />
+        </motion.div>
+        <motion.div animate={{ y: [-10, 10, -10] }} transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 1.2 }} className="absolute bottom-[20%] right-[15%] transform rotate-12">
+          <PixelHeart className="w-8 h-8 md:w-12 md:h-12" />
+        </motion.div>
+        
+        <motion.div animate={{ y: [6, -6, 6] }} transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 2.2 }} className="absolute bottom-[25%] left-[12%] transform -rotate-12">
+          <RedButton className="w-16 h-12 md:w-24 md:h-16" />
+        </motion.div>
+        <motion.div animate={{ y: [-8, 8, -8] }} transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut", delay: 1.8 }} className="absolute bottom-[20%] left-[8%] transform rotate-6">
+          <PixelStar className="w-10 h-10 md:w-16 md:h-16" />
+        </motion.div>
+        <motion.div animate={{ y: [7, -7, 7] }} transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 2.5 }} className="absolute bottom-[30%] left-[18%] transform -rotate-12">
+          <PixelCoin className="w-8 h-10 md:w-10 md:h-12" />
+        </motion.div>
+        
+        <motion.div animate={{ y: [-6, 6, -6] }} transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }} className="absolute bottom-[5%] left-[30%] transform -rotate-6">
+          <PixelHeart className="w-8 h-8 md:w-14 md:h-14" />
+        </motion.div>
+        <motion.div animate={{ y: [9, -9, 9] }} transition={{ duration: 6.2, repeat: Infinity, ease: "easeInOut", delay: 1.1 }} className="absolute bottom-[10%] right-[30%] transform rotate-12">
+          <PixelCoin className="w-8 h-10 md:w-12 md:h-14" />
+        </motion.div>
+      </div>
+
       {/* Header */}
-      <header className="p-6 md:px-12 flex items-center justify-between z-50">
+      <header className="relative z-50 flex items-center justify-between px-6 py-4 md:px-12 bg-black/40 backdrop-blur-md border-b border-white/5">
         <div className="flex items-center gap-3 text-emerald-500">
           <Cloud className="w-8 h-8" />
-          <span className="text-xl font-bold tracking-tight text-white">Wonder<span className="text-emerald-500">Games</span></span>
+          <span className="text-xl font-bold tracking-tight text-white">Wonder<span className="text-[#15b045]">Games</span></span>
+        </div>
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-300">
+          <a href="#catalogo" onClick={(e) => { e.preventDefault(); document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-[#15b045] transition-colors">Catálogo</a>
+          <a href="#sistemas" onClick={(e) => { e.preventDefault(); document.getElementById('sistemas')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-[#15b045] transition-colors">Sistemas</a>
+          <a href="#sobre" onClick={(e) => { e.preventDefault(); document.getElementById('sobre')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-[#15b045] transition-colors">Sobre</a>
+        </nav>
+        <div className="flex items-center gap-4">
+          <button onClick={onEnter} className="hidden sm:flex items-center gap-2 text-sm font-bold text-white hover:text-[#15b045] transition-colors">
+            <User className="w-4 h-4" /> Entrar
+          </button>
+          <button onClick={onEnter} className="bg-[#15b045] hover:bg-emerald-600 text-white px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(21,176,69,0.3)]">
+            Jogar Agora
+          </button>
         </div>
       </header>
 
       {/* Hero */}
       <main className="flex-1 flex flex-col px-4 sm:px-6 text-center z-10 relative">
-        <div className="flex-1 flex flex-col items-center justify-center py-12 md:py-20">
+        <div className="absolute inset-0 w-full h-full -z-10 pointer-events-none overflow-hidden flex items-center justify-center">
+          <motion.video 
+            src="/videooooooo.mp4" 
+            autoPlay 
+            muted 
+            loop 
+            playsInline
+            animate={{ opacity: [0, 1, 0] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="w-full h-full object-cover mix-blend-screen contrast-150 brightness-110 saturate-200" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/20 to-[#050505]"></div>
+        </div>
+
+        <div className="flex-1 flex flex-col items-center justify-center py-12 md:py-24 relative">
           <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl"
+          className="max-w-4xl relative z-10"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 md:py-1 rounded-full bg-xbox-green/10 border border-xbox-green/20 text-xbox-green text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-6 md:mb-8 text-center leading-tight">
-            <Zap className="w-3 h-3 md:w-4 md:h-4 shrink-0" /> Agora com suporte nativo a Gamepads
-          </div>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-4 md:mb-6 leading-tight">
-            Reviva os <br className="hidden md:block"/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-xbox-green to-emerald-400">
+          <h1 className="text-5xl sm:text-7xl md:text-[5rem] lg:text-[6rem] font-black tracking-tighter mb-4 md:mb-6 leading-[1.1]">
+            Reviva os <br />
+            <span className="text-[#15b045]">
               Anos Dourados.
             </span>
           </h1>
-          <p className="text-base sm:text-lg md:text-2xl text-zinc-400 mb-8 md:mb-10 max-w-2xl mx-auto font-medium leading-relaxed px-2">
+          <p className="text-base sm:text-lg md:text-xl text-zinc-300 mb-10 md:mb-12 max-w-2xl mx-auto font-medium leading-relaxed px-4">
             Uma plataforma em nuvem elegante com a biblioteca definitiva de Super Nintendo, Sega Mega Drive e PlayStation 1. Salve seu progresso e jogue de qualquer lugar.
           </p>
           
@@ -48,10 +180,10 @@ export function LandingPage({ onEnter }: { onEnter: () => void }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={onEnter}
-            className="bg-xbox-green text-white px-8 md:px-10 py-4 md:py-5 rounded-xl font-black text-base md:text-xl uppercase tracking-widest shadow-[0_0_30px_rgba(16,124,16,0.5)] flex items-center justify-center gap-3 w-full sm:w-auto mx-auto transition-all hover:bg-emerald-600 hover:shadow-[0_0_50px_rgba(16,124,16,0.7)]"
+            className="bg-[#15b045] text-white px-8 md:px-10 py-4 md:py-5 rounded-xl font-black text-sm md:text-lg uppercase tracking-[0.15em] flex items-center justify-center gap-3 w-full sm:w-auto mx-auto transition-all hover:bg-emerald-600 shadow-[0_0_20px_rgba(21,176,69,0.4)] hover:shadow-[0_0_40px_rgba(21,176,69,0.6)]"
           >
             <Play className="w-5 h-5 md:w-6 md:h-6 fill-current" />
-            Entrar na Plataforma
+            ENTRAR NA PLATAFORMA
           </motion.button>
         </motion.div>
         </div>
@@ -67,8 +199,112 @@ export function LandingPage({ onEnter }: { onEnter: () => void }) {
         </motion.div>
       </main>
 
+      {/* Como Funciona */}
+      <section id="sobre" className="py-16 md:py-24 bg-zinc-950 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-black text-center mb-12">Como Funciona</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center glass p-8 rounded-2xl relative">
+               <div className="w-12 h-12 bg-xbox-green text-white rounded-full flex items-center justify-center text-xl font-bold absolute -top-6 left-1/2 -translate-x-1/2 shadow-lg">1</div>
+               <h3 className="text-xl font-bold mt-4 mb-2">Conecte sua Conta</h3>
+               <p className="text-zinc-400">Faça login com o Google em segundos para criar seu perfil e habilitar o salvamento em nuvem.</p>
+            </div>
+            <div className="text-center glass p-8 rounded-2xl relative">
+               <div className="w-12 h-12 bg-xbox-green text-white rounded-full flex items-center justify-center text-xl font-bold absolute -top-6 left-1/2 -translate-x-1/2 shadow-lg">2</div>
+               <h3 className="text-xl font-bold mt-4 mb-2">Escolha seu Clássico</h3>
+               <p className="text-zinc-400">Explore nossa biblioteca com milhares de jogos de SNES, Mega Drive e PS1.</p>
+            </div>
+            <div className="text-center glass p-8 rounded-2xl relative">
+               <div className="w-12 h-12 bg-xbox-green text-white rounded-full flex items-center justify-center text-xl font-bold absolute -top-6 left-1/2 -translate-x-1/2 shadow-lg">3</div>
+               <h3 className="text-xl font-bold mt-4 mb-2">Jogue e Salve</h3>
+               <p className="text-zinc-400">Jogue com ou sem controle. Salve o progresso na nuvem e continue de onde parou em qualquer dispositivo.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Vitrine */}
+      <section id="catalogo" className="py-16 md:py-24 bg-black px-4 sm:px-6 border-t border-white/5">
+        <div className="max-w-6xl mx-auto text-center">
+           <h2 className="text-3xl md:text-5xl font-black mb-4">Clássicos Inesquecíveis</h2>
+           <p className="text-zinc-400 max-w-2xl mx-auto mb-12">Os maiores sucessos da era de ouro dos videogames estão aqui, prontos para serem jogados diretamente do seu navegador.</p>
+           
+           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
+              {[
+                { title: "Super Mario World", img: "https://i.987967.xyz/screenshot/79/2023/06/22/44986_e36127d41a0f19ff4b09e693761086a198e05e81.png" },
+                { title: "Sonic the Hedgehog", img: "https://upload.wikimedia.org/wikipedia/en/b/ba/Sonic_the_Hedgehog_1_Genesis_box_art.jpg" },
+                { title: "Crash Bandicoot", img: "https://i.987967.xyz/screenshot/72/2023/07/12/40129_2363be9aa67351a0edfe876487b12015d262b154.png" },
+                { title: "Donkey Kong Country", img: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Donkey%20Kong%20Country%20(USA).png" },
+              ].map((game, i) => (
+                <div key={i} className="relative aspect-[3/4] rounded-2xl overflow-hidden group border border-white/10">
+                  <img src={game.img} alt={game.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-4 md:p-6">
+                    <h3 className="text-white font-bold text-sm md:text-lg">{game.title}</h3>
+                  </div>
+                </div>
+              ))}
+           </div>
+        </div>
+      </section>
+
+      {/* Gamification */}
+      <section className="py-16 md:py-24 bg-gradient-to-br from-zinc-900 to-black px-4 sm:px-6 border-t border-xbox-green/20 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl bg-xbox-green/5 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 relative z-10">
+           <div className="flex-1 text-center md:text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-xbox-green/10 text-xbox-green text-xs font-bold uppercase tracking-widest mb-6 border border-xbox-green/20">
+                <Zap className="w-4 h-4 fill-current" /> Novo Sistema de Progressão
+              </div>
+              <h2 className="text-3xl md:text-5xl font-black mb-6">Suba de Nível <br className="hidden md:block"/>Jogando</h2>
+              <p className="text-zinc-400 text-lg md:text-xl leading-relaxed mb-8">
+                Jogue todos os dias, ganhe XP e suba de nível no seu perfil retro! Desbloqueie conquistas, acompanhe seus dias jogados e construa seu legado na plataforma.
+              </p>
+              <button onClick={onEnter} className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-xl font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-colors mx-auto md:mx-0">
+                 Criar meu Perfil
+              </button>
+           </div>
+           <div className="flex-1 w-full max-w-md">
+              <div className="glass p-8 rounded-3xl border border-xbox-green/30 relative shadow-[0_0_50px_rgba(16,124,16,0.15)]">
+                 <div className="absolute -top-4 -right-4 w-12 h-12 bg-xbox-green text-black font-black flex items-center justify-center rounded-full text-xl shadow-[0_0_20px_rgba(16,124,16,0.5)] transform rotate-12">
+                   LVL<br/>5
+                 </div>
+                 <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 rounded-full bg-zinc-800 border-2 border-xbox-green flex items-center justify-center">
+                       <User className="w-8 h-8 text-zinc-500" />
+                    </div>
+                    <div>
+                       <h4 className="font-bold text-lg">Jogador Clássico</h4>
+                       <p className="text-xs text-xbox-green font-bold uppercase tracking-widest">Conta Conectada</p>
+                    </div>
+                 </div>
+                 <div className="space-y-4">
+                    <div>
+                       <div className="flex justify-between text-xs font-bold uppercase text-zinc-400 mb-2">
+                         <span>Experiência</span>
+                         <span className="text-xbox-green">2150 / 2500 XP</span>
+                       </div>
+                       <div className="h-3 bg-zinc-800 rounded-full overflow-hidden">
+                         <div className="h-full bg-gradient-to-r from-emerald-600 to-xbox-green w-[86%]"></div>
+                       </div>
+                    </div>
+                    <div className="flex gap-4">
+                       <div className="flex-1 bg-black/40 p-3 rounded-xl text-center border border-white/5">
+                          <p className="text-2xl font-black text-white">14</p>
+                          <p className="text-[10px] text-zinc-500 uppercase font-bold tracking-wider">Dias Jogados</p>
+                       </div>
+                       <div className="flex-1 bg-black/40 p-3 rounded-xl text-center border border-white/5">
+                          <p className="text-2xl font-black text-white">8</p>
+                          <p className="text-[10px] text-zinc-500 uppercase font-bold tracking-wider">Jogos Salvos</p>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+      </section>
+
       {/* Features */}
-      <section className="py-16 md:py-24 bg-zinc-950 px-4 sm:px-6 border-t border-white/5">
+      <section id="sistemas" className="py-16 md:py-24 bg-zinc-950 px-4 sm:px-6 border-t border-white/5">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
           <div className="flex flex-col items-center text-center md:items-start md:text-left gap-3 md:gap-4 glass md:border-none p-6 md:p-0 rounded-2xl md:bg-transparent">
             <div className="bg-white/5 p-3 md:p-4 rounded-xl md:rounded-2xl w-fit">
@@ -106,6 +342,60 @@ export function LandingPage({ onEnter }: { onEnter: () => void }) {
               Desfrute de milhares de títulos inesquecíveis do Super Nintendo (SNES), da velocidade do Sega Mega Drive e dos clássicos em 3D do PlayStation 1.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Depoimentos */}
+      <section className="py-16 md:py-24 bg-zinc-950 px-4 sm:px-6 border-t border-white/5">
+        <div className="max-w-6xl mx-auto text-center">
+           <h2 className="text-3xl md:text-5xl font-black mb-12">O que a comunidade diz</h2>
+           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                { name: "Lucas M.", text: "Finalmente posso jogar meus RPGs de SNES no intervalo do trabalho e continuar do celular em casa. O cloud save é perfeito!" },
+                { name: "Mariana R.", text: "A interface é muito fluida e jogar PS1 no navegador sem instalar nada é mágico. Recomendo muito!" },
+                { name: "Thiago K.", text: "Conectei meu controle de Xbox via Bluetooth e o mapeamento foi automático. A melhor plataforma retro que já usei." }
+              ].map((dep, i) => (
+                <div key={i} className="glass p-6 rounded-2xl text-left relative">
+                  <div className="text-xbox-green mb-4">
+                    <svg className="w-8 h-8 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/></svg>
+                  </div>
+                  <p className="text-zinc-300 mb-6 italic">"{dep.text}"</p>
+                  <p className="font-bold text-sm text-white">{dep.name}</p>
+                </div>
+              ))}
+           </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 md:py-24 bg-black px-4 sm:px-6 border-t border-white/5">
+        <div className="max-w-4xl mx-auto">
+           <h2 className="text-3xl md:text-5xl font-black text-center mb-12">Perguntas Frequentes</h2>
+           <div className="space-y-6">
+              {[
+                { q: "Preciso baixar ou instalar algum emulador?", a: "Não. A Wonder Games Cloud funciona 100% no seu navegador usando tecnologia WebAssembly. Basta acessar e jogar." },
+                { q: "O salvamento em nuvem é gratuito?", a: "Sim! Ao conectar com sua conta Google, seu progresso é salvo automaticamente em nossos servidores de forma segura." },
+                { q: "Posso jogar usando um controle?", a: "Com certeza. Suportamos a maioria dos controles USB e Bluetooth, como de Xbox e PlayStation. O mapeamento é feito automaticamente na maioria dos casos." },
+                { q: "Funciona no celular?", a: "Sim, a plataforma é responsiva e possui controles virtuais na tela para você jogar no smartphone de forma confortável." }
+              ].map((faq, i) => (
+                <div key={i} className="glass p-6 md:p-8 rounded-2xl border border-white/5">
+                   <h3 className="text-lg md:text-xl font-bold text-white mb-3">{faq.q}</h3>
+                   <p className="text-zinc-400 text-sm md:text-base leading-relaxed">{faq.a}</p>
+                </div>
+              ))}
+           </div>
+        </div>
+      </section>
+
+      {/* CTA Final */}
+      <section className="py-20 md:py-32 bg-zinc-950 px-4 sm:px-6 border-t border-white/5 text-center">
+        <div className="max-w-3xl mx-auto">
+           <h2 className="text-4xl md:text-6xl font-black mb-6">Pronto para a Nostalgia?</h2>
+           <p className="text-zinc-400 text-lg md:text-xl mb-10">Junte-se à comunidade e tenha seus clássicos favoritos sempre ao alcance de um clique.</p>
+           <button onClick={onEnter} className="bg-xbox-green hover:bg-emerald-600 text-white px-10 py-5 rounded-2xl font-black text-lg md:text-xl uppercase tracking-widest shadow-[0_0_30px_rgba(16,124,16,0.5)] flex items-center justify-center gap-3 transition-all hover:scale-105 hover:shadow-[0_0_50px_rgba(16,124,16,0.7)] mx-auto">
+             <Play className="w-6 h-6 fill-current" />
+             Começar a Jogar Agora
+           </button>
         </div>
       </section>
 
@@ -157,19 +447,58 @@ export function LandingPage({ onEnter }: { onEnter: () => void }) {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 text-center text-zinc-650 text-xs font-medium border-t border-white/10 flex flex-col gap-2 items-center">
-        <p>Wonder Games Cloud © {new Date().getFullYear()}. Feito com paixão pelos retro games.</p>
-        <p>
-          Desenvolvedor:{" "}
-          <a 
-            href="https://portfolio-braian-three.vercel.app/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-zinc-400 hover:text-emerald-400 font-bold underline underline-offset-4 transition-all duration-300"
-          >
-            Braian Kmdc
-          </a>
-        </p>
+      <footer className="bg-black pt-16 pb-8 border-t border-white/10 px-4 sm:px-6 relative overflow-hidden">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-1/2 bg-xbox-green/5 blur-[100px] pointer-events-none rounded-t-full"></div>
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+            <div className="md:col-span-2">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 bg-xbox-green rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(16,124,16,0.5)]">
+                  <Gamepad2 className="w-6 h-6 text-black" />
+                </div>
+                <span className="text-xl font-black tracking-tight text-white">Wonder Games<span className="text-xbox-green">Cloud</span></span>
+              </div>
+              <p className="text-zinc-400 text-sm leading-relaxed max-w-sm">
+                Reviva a era de ouro dos videogames. Sua plataforma definitiva para jogar clássicos do SNES, Mega Drive e PS1 diretamente do navegador com salvamento em nuvem.
+              </p>
+            </div>
+            
+            <div>
+              <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-xs">Navegação</h4>
+              <ul className="space-y-3">
+                <li><button onClick={onEnter} className="text-zinc-400 hover:text-xbox-green transition-colors text-sm">Entrar na Plataforma</button></li>
+                <li><a href="#" className="text-zinc-400 hover:text-xbox-green transition-colors text-sm">Catálogo de Jogos</a></li>
+                <li><a href="#" className="text-zinc-400 hover:text-xbox-green transition-colors text-sm">Sistemas Suportados</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-xs">Legal</h4>
+              <ul className="space-y-3">
+                <li><a href="#" className="text-zinc-400 hover:text-white transition-colors text-sm">Termos de Uso</a></li>
+                <li><a href="#" className="text-zinc-400 hover:text-white transition-colors text-sm">Política de Privacidade</a></li>
+                <li><a href="#" className="text-zinc-400 hover:text-white transition-colors text-sm">Aviso de Direitos Autorais</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/10 gap-4 text-center md:text-left">
+            <p className="text-zinc-500 text-xs font-medium">
+              Wonder Games Cloud © {new Date().getFullYear()}. Feito com paixão pelos retro games.
+            </p>
+            <p className="text-zinc-500 text-xs font-medium">
+              Desenvolvido por{" "}
+              <a 
+                href="https://portfolio-braian-three.vercel.app/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-white hover:text-xbox-green font-bold transition-all duration-300"
+              >
+                Braian Kmdc
+              </a>
+            </p>
+          </div>
+        </div>
       </footer>
     </div>
   );

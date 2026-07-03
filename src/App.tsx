@@ -24,9 +24,10 @@ import { GAMES, Game } from "./data/games";
 import { ps1Games } from "./data/ps1Games";
 import { useAuth } from "./contexts/AuthContext";
 import { db } from "./lib/firebase";
-import { collection, query, getDocs, doc, setDoc, serverTimestamp, deleteDoc } from "firebase/firestore";
+import { collection, query, getDocs, doc, setDoc, serverTimestamp, deleteDoc, increment } from "firebase/firestore";
 import { useGamepad } from "./hooks/useGamepad";
 import { LandingPage } from "./components/LandingPage";
+import { TipOfTheDay } from "./components/TipOfTheDay";
 
 // Helper component for Image resolving
 function PexelsImage({ fallbackUrl, className, alt }: { queryName: string, category: string, orientation: 'landscape'|'portrait', fallbackUrl: string, className: string, alt: string }) {
@@ -113,6 +114,28 @@ export default function App() {
       fetchSavedGames();
     }
   }, [user, activeTab]);
+
+  useEffect(() => {
+    let interval: ReturnType<typeof setInterval>;
+    if (isPlaying && user) {
+      interval = setInterval(async () => {
+        try {
+          const userRef = doc(db, 'users', user.uid);
+          await setDoc(userRef, {
+             xp: increment(8)
+          }, { merge: true });
+        } catch (e) {
+          console.error("Error adding gameplay XP:", e);
+        }
+      }, 60000); // 1 minute
+    }
+
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  }, [isPlaying, user]);
 
   const fetchSavedGames = async () => {
     if (!user) return;
@@ -445,6 +468,7 @@ export default function App() {
         {/* Game Rows - Home */}
         {activeTab === "home" && !searchQuery && (
           <div className="space-y-12 pb-24">
+            <TipOfTheDay games={[...liveGames, ...livePS1Games]} onPlayGame={setSelectedGame} />
             <GameRow 
               title="Recomendados para você" 
               games={GAMES.slice(0, 10)} 
