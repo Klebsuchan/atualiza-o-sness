@@ -122,17 +122,23 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     };
   }, []);
 
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
   const loginWithGoogle = async () => {
+    if (isLoggingIn) return;
+    setIsLoggingIn(true);
+
     setError(null);
     try {
       // Force popup resolver to handle iframe quirks in Preview
       await signInWithPopup(auth, googleProvider, browserPopupRedirectResolver);
+      setIsLoggingIn(false);
     } catch (err: any) {
+      setIsLoggingIn(false);
       console.error("Error logging in with Google:", err);
       // Determine if it was blocked by iframe/browser strictness
       if (err.code === 'auth/popup-blocked') {
         setError('O pop-up de login foi bloqueado pelo seu navegador. Por favor, permita pop-ups para este site ou abra o aplicativo em uma nova guia para fazer o login.');
-      } else if (err.code === 'auth/popup-closed-by-user' || err.message?.includes('INTERNAL ASSERTION FAILED')) {
+      } else if (err.code === 'auth/popup-closed-by-user' || err.code === 'auth/cancelled-popup-request' || err.message?.includes('INTERNAL ASSERTION FAILED')) {
         setError('O login foi interrompido (pop-up fechado) ou bloqueado devido ao ambiente. Se o botão não estiver respondendo, clique no botão "Abrir App em Nova Guia" no topo da sua tela (↗️) para fazer login sem restrições.');
       } else if (err.code === 'auth/unauthorized-domain') {
         setError('O domínio atual não está autorizado no Firebase. Por favor, adicione as URLs deste app na lista de "Authorized domains" nas configurações de Authentication do Firebase Console.');

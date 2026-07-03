@@ -27,6 +27,7 @@ import { db } from "./lib/firebase";
 import { collection, query, getDocs, doc, setDoc, serverTimestamp, deleteDoc, increment } from "firebase/firestore";
 import { useGamepad } from "./hooks/useGamepad";
 import { LandingPage } from "./components/LandingPage";
+import { useLanguage } from "./contexts/LanguageContext";
 import { TipOfTheDay } from "./components/TipOfTheDay";
 
 // Helper component for Image resolving
@@ -47,6 +48,7 @@ function PexelsImage({ fallbackUrl, className, alt }: { queryName: string, categ
 }
 
 export default function App() {
+  const { t, language, setLanguage } = useLanguage();
   const [hasEntered, setHasEntered] = useState(false);
   const [isLoadingGames, setIsLoadingGames] = useState(true);
   const [liveGames, setLiveGames] = useState<Game[]>([]);
@@ -154,7 +156,7 @@ export default function App() {
 
   const handleSaveProgress = async (game: Game) => {
     if (!user) {
-      alert("Faça login no Perfil para salvar seu progresso na nuvem!");
+      alert(`Faça login no ${t("app.profile")} para salvar seu progresso na nuvem!`);
       return;
     }
     
@@ -211,7 +213,7 @@ export default function App() {
         <div className="flex md:flex-col gap-6 md:gap-8 items-center justify-around w-full md:w-auto">
           <NavItem icon={Home} label="Home" active={activeTab === "home"} onClick={() => setActiveTab("home")} />
           <NavItem icon={Gamepad2} label="SNES" active={activeTab === "snes"} onClick={() => setActiveTab("snes")} />
-          <NavItem icon={Gamepad2} label="Mega Drive" active={activeTab === "megadrive"} onClick={() => setActiveTab("megadrive")} />
+          <NavItem icon={Gamepad2} label={t("app.sega")} active={activeTab === "megadrive"} onClick={() => setActiveTab("megadrive")} />
           <NavItem icon={Library} label="Biblioteca" active={activeTab === "library"} onClick={() => setActiveTab("library")} />
           <NavItem icon={Radio} label="PS1" active={activeTab === "ps1"} onClick={() => setActiveTab("ps1")} />
           <NavItem icon={Search} label="Buscar" active={activeTab === "search"} onClick={() => setActiveTab("search")} />
@@ -243,13 +245,13 @@ export default function App() {
               <Search className="w-4 h-4 text-white/50" />
               <input 
                 type="text" 
-                placeholder="Buscar jogos clássicos..." 
+                placeholder={t("app.search")} 
                 value={searchQuery}
                 onChange={(e) => {setSearchQuery(e.target.value); setActiveTab("search");}}
                 className="bg-transparent border-none outline-none text-sm w-full placeholder:text-text-dim"
               />
             </div>
-            <div className="hidden md:flex items-center gap-6">
+            <div className="hidden md:flex items-center gap-6"><button onClick={() => setLanguage(language === "pt" ? "en" : "pt")} className="flex items-center justify-center bg-white/5 hover:bg-white/10 border border-white/10 w-8 h-8 rounded-full text-xs font-bold uppercase transition-colors">{language}</button>
               {gamepadConnected && (
                 <div className="hidden md:flex items-center gap-2 bg-xbox-green/20 border border-xbox-green/50 px-3 py-1.5 rounded-full text-xbox-green">
                   <Gamepad2 className="w-4 h-4" />
@@ -317,7 +319,7 @@ export default function App() {
                       onClick={() => { setSelectedGame(featuredGame); setIsPlaying(true); }}
                       className="bg-xbox-green text-white px-5 md:px-8 py-2 md:py-3 rounded-md font-bold text-xs md:text-base flex items-center gap-2 hover:brightness-110 transition-all shadow-xl active:scale-95 uppercase tracking-wider"
                     >
-                      <Play className="w-4 h-4 md:w-5 md:h-5 fill-current" /> Jogar
+                      <Play className="w-4 h-4 md:w-5 md:h-5 fill-current" /> {t("app.play")}
                     </button>
                     <button 
                       onClick={() => setSelectedGame(featuredGame)}
@@ -345,7 +347,7 @@ export default function App() {
                     onClick={loginWithGoogle}
                     className="bg-xbox-green hover:brightness-110 px-8 py-3 rounded-md font-bold flex items-center justify-center gap-2 transition-all uppercase tracking-widest shadow-[0_0_15px_rgba(16,124,16,0.3)] w-full"
                   >
-                    <Cloud className="w-5 h-5 fill-current" /> Entrar com Google
+                    <Cloud className="w-5 h-5 fill-current" /> {t("profile.login_btn")}
                   </button>
                   {error && (
                     <div className="bg-red-500/10 border border-red-500/50 text-red-400 p-4 rounded-md text-xs text-left w-full">
@@ -395,7 +397,7 @@ export default function App() {
                   {userStats && (
                     <div className="mt-4 pt-6 border-t border-white/10 w-full flex flex-col gap-4">
                       <div className="flex justify-between items-center text-sm font-bold uppercase tracking-wider">
-                        <span className="text-white/60">Experiência</span>
+                        <span className="text-white/60">{t("profile.xp")}</span>
                         <span className="text-xbox-green">{userStats.xp} / {userStats.nextLevelXp} XP</span>
                       </div>
                       <div className="w-full bg-black/50 rounded-full h-3 border border-white/10 overflow-hidden relative">
@@ -409,11 +411,11 @@ export default function App() {
                       <div className="flex gap-4 mt-2">
                         <div className="flex-1 bg-black/30 p-4 rounded-xl border border-white/5 text-center">
                           <p className="text-3xl font-black text-white mb-1">{userStats.playDaysCount}</p>
-                          <p className="text-[10px] md:text-xs text-text-dim uppercase tracking-widest font-bold">Dias Jogados</p>
+                          <p className="text-[10px] md:text-xs text-text-dim uppercase tracking-widest font-bold">{t("profile.days_played")}</p>
                         </div>
                         <div className="flex-1 bg-black/30 p-4 rounded-xl border border-white/5 text-center">
                           <p className="text-3xl font-black text-white mb-1">{savedGames.length}</p>
-                          <p className="text-[10px] md:text-xs text-text-dim uppercase tracking-widest font-bold">Jogos Salvos</p>
+                          <p className="text-[10px] md:text-xs text-text-dim uppercase tracking-widest font-bold">{t("profile.saved_games")}</p>
                         </div>
                       </div>
                     </div>
@@ -600,7 +602,7 @@ export default function App() {
                  />
                  <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent flex items-center p-8 md:p-12">
                    <div>
-                     <h1 className="text-3xl md:text-5xl font-extrabold mb-2 text-white">Super Nintendo</h1>
+                     <h1 className="text-3xl md:text-5xl font-extrabold mb-2 text-white">{t("app.nintendo")}</h1>
                      <p className="text-text-dim text-sm md:text-lg max-w-lg">A era de ouro dos 16-bits. Clássicos inesquecíveis.</p>
                    </div>
                  </div>
@@ -841,7 +843,7 @@ export default function App() {
                     </div>
                     <div className="bg-white/5 p-3 rounded-lg border border-white/5">
                       <p className="text-xbox-green uppercase tracking-tighter mb-1 font-bold">Plataforma</p>
-                      <p className="text-white font-medium">{selectedGame.system === 'PS1' ? 'PlayStation 1' : selectedGame.system === 'Mega Drive' ? 'Sega Mega Drive' : 'Super Nintendo'}</p>
+                      <p className="text-white font-medium">{selectedGame.system === 'PS1' ? t("app.playstation") : selectedGame.system === 'Mega Drive' ? t("app.sega") : t("app.nintendo")}</p>
                     </div>
                   </div>
 
@@ -850,7 +852,7 @@ export default function App() {
                       onClick={() => setIsPlaying(true)}
                       className="w-full sm:w-auto bg-xbox-green hover:brightness-110 px-8 md:px-12 py-3 md:py-4 rounded-md font-bold text-sm md:text-lg flex items-center justify-center gap-2 md:gap-3 transition-all active:scale-95 shadow-xl shadow-xbox-green/40 uppercase tracking-widest ring-4 ring-xbox-green/20"
                     >
-                      <Play className="w-5 h-5 md:w-6 md:h-6 fill-current" /> INICIAR GAMEPLAY
+                      <Play className="w-5 h-5 md:w-6 md:h-6 fill-current" /> {t("game.start")}
                     </button>
                     {user && (
                       <button 
@@ -907,7 +909,7 @@ export default function App() {
                   onClick={() => setIsPlaying(false)}
                   className="bg-red-500/10 hover:bg-red-500 text-red-500 hover:text-white p-2 rounded-lg transition-all flex items-center gap-2 px-3 md:px-4 italic font-bold text-[10px] md:text-xs"
                 >
-                  <X className="w-4 h-4 md:w-5 md:h-5" /> <span className="hidden sm:inline">ENCERRAR SESSÃO</span><span className="sm:hidden">SAIR</span>
+                  <X className="w-4 h-4 md:w-5 md:h-5" /> <span className="hidden sm:inline">{t("game.end_session")}</span><span className="sm:hidden">{t("game.exit")}</span>
                 </button>
               </div>
             </div>

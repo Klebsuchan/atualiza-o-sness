@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
+import { useLanguage } from "../contexts/LanguageContext";
 import { Gamepad2, Cloud, Heart, Copy, CheckCircle2, Play, ChevronDown, Zap, User } from "lucide-react";
 
 const PixelHeart = ({ className }: { className?: string }) => (
@@ -31,6 +32,7 @@ const RedButton = ({ className }: { className?: string }) => (
 );
 
 export function LandingPage({ onEnter }: { onEnter: () => void }) {
+  const { t, language, setLanguage } = useLanguage();
   const [copied, setCopied] = useState(false);
   const pixKey = "b0f51ae0-be9f-4b87-9da4-0ca63dd8ccbb";
 
@@ -129,13 +131,14 @@ export function LandingPage({ onEnter }: { onEnter: () => void }) {
           <span className="text-xl font-bold tracking-tight text-white">Wonder<span className="text-[#15b045]">Games</span></span>
         </div>
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-300">
-          <a href="#catalogo" onClick={(e) => { e.preventDefault(); document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-[#15b045] transition-colors">Catálogo</a>
-          <a href="#sistemas" onClick={(e) => { e.preventDefault(); document.getElementById('sistemas')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-[#15b045] transition-colors">Sistemas</a>
-          <a href="#sobre" onClick={(e) => { e.preventDefault(); document.getElementById('sobre')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-[#15b045] transition-colors">Sobre</a>
+          <button onClick={() => setLanguage(language === "pt" ? "en" : "pt")} className="flex items-center gap-1 hover:text-white transition-colors bg-white/5 px-2 py-1 rounded-md text-xs font-bold border border-white/10 uppercase">{language}</button>
+          <a href="#catalogo" onClick={(e) => { e.preventDefault(); document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-[#15b045] transition-colors">{t("nav.catalogo")}</a>
+          <a href="#sistemas" onClick={(e) => { e.preventDefault(); document.getElementById('sistemas')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-[#15b045] transition-colors">{t("nav.sistemas")}</a>
+          <a href="#sobre" onClick={(e) => { e.preventDefault(); document.getElementById('sobre')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-[#15b045] transition-colors">{t("nav.sobre")}</a>
         </nav>
         <div className="flex items-center gap-4">
           <button onClick={onEnter} className="hidden sm:flex items-center gap-2 text-sm font-bold text-white hover:text-[#15b045] transition-colors">
-            <User className="w-4 h-4" /> Entrar
+            <User className="w-4 h-4" /> {t("nav.entrar")}
           </button>
           <button onClick={onEnter} className="bg-[#15b045] hover:bg-emerald-600 text-white px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(21,176,69,0.3)]">
             Jogar Agora
@@ -167,14 +170,15 @@ export function LandingPage({ onEnter }: { onEnter: () => void }) {
           className="max-w-4xl relative z-10"
         >
           <h1 className="text-5xl sm:text-7xl md:text-[5rem] lg:text-[6rem] font-black tracking-tighter mb-4 md:mb-6 leading-[1.1]">
-            Reviva os <br />
+            {t("hero.title1")} <br />
             <span className="text-[#15b045]">
-              Anos Dourados.
+              {t("hero.title2")}
             </span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-zinc-300 mb-10 md:mb-12 max-w-2xl mx-auto font-medium leading-relaxed px-4">
-            Uma plataforma em nuvem elegante com a biblioteca definitiva de Super Nintendo, Sega Mega Drive e PlayStation 1. Salve seu progresso e jogue de qualquer lugar.
+            {t("hero.subtitle")}
           </p>
+           <div className="bg-yellow-500/10 border border-yellow-500/20 text-yellow-500/80 p-4 rounded-xl max-w-2xl mx-auto mb-12 text-sm text-left flex items-start gap-3"><Zap className="w-5 h-5 flex-shrink-0 mt-0.5" /><div><strong className="block mb-1">{t("catalogo.covers.title")}</strong>{t("catalogo.covers.desc")}</div></div>
           
           <motion.button
             whileHover={{ scale: 1.05 }}
@@ -199,25 +203,25 @@ export function LandingPage({ onEnter }: { onEnter: () => void }) {
         </motion.div>
       </main>
 
-      {/* Como Funciona */}
+      {/* {t("sobre.title")} */}
       <section id="sobre" className="py-16 md:py-24 bg-zinc-950 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-black text-center mb-12">Como Funciona</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center glass p-8 rounded-2xl relative">
                <div className="w-12 h-12 bg-xbox-green text-white rounded-full flex items-center justify-center text-xl font-bold absolute -top-6 left-1/2 -translate-x-1/2 shadow-lg">1</div>
-               <h3 className="text-xl font-bold mt-4 mb-2">Conecte sua Conta</h3>
-               <p className="text-zinc-400">Faça login com o Google em segundos para criar seu perfil e habilitar o salvamento em nuvem.</p>
+               <h3 className="text-xl font-bold mt-4 mb-2">{t("sobre.card1.title")}</h3>
+               <p className="text-zinc-400">{t("sobre.card1.desc")}</p>
             </div>
             <div className="text-center glass p-8 rounded-2xl relative">
                <div className="w-12 h-12 bg-xbox-green text-white rounded-full flex items-center justify-center text-xl font-bold absolute -top-6 left-1/2 -translate-x-1/2 shadow-lg">2</div>
-               <h3 className="text-xl font-bold mt-4 mb-2">Escolha seu Clássico</h3>
-               <p className="text-zinc-400">Explore nossa biblioteca com milhares de jogos de SNES, Mega Drive e PS1.</p>
+               <h3 className="text-xl font-bold mt-4 mb-2">{t("sobre.card2.title")}</h3>
+               <p className="text-zinc-400">{t("sobre.card2.desc")}</p>
             </div>
             <div className="text-center glass p-8 rounded-2xl relative">
                <div className="w-12 h-12 bg-xbox-green text-white rounded-full flex items-center justify-center text-xl font-bold absolute -top-6 left-1/2 -translate-x-1/2 shadow-lg">3</div>
-               <h3 className="text-xl font-bold mt-4 mb-2">Jogue e Salve</h3>
-               <p className="text-zinc-400">Jogue com ou sem controle. Salve o progresso na nuvem e continue de onde parou em qualquer dispositivo.</p>
+               <h3 className="text-xl font-bold mt-4 mb-2">{t("sobre.card3.title")}</h3>
+               <p className="text-zinc-400">{t("sobre.card3.desc")}</p>
             </div>
           </div>
         </div>
@@ -226,8 +230,8 @@ export function LandingPage({ onEnter }: { onEnter: () => void }) {
       {/* Vitrine */}
       <section id="catalogo" className="py-16 md:py-24 bg-black px-4 sm:px-6 border-t border-white/5">
         <div className="max-w-6xl mx-auto text-center">
-           <h2 className="text-3xl md:text-5xl font-black mb-4">Clássicos Inesquecíveis</h2>
-           <p className="text-zinc-400 max-w-2xl mx-auto mb-12">Os maiores sucessos da era de ouro dos videogames estão aqui, prontos para serem jogados diretamente do seu navegador.</p>
+           <h2 className="text-3xl md:text-5xl font-black mb-4">{t("catalogo.title")}</h2>
+           <p className="text-zinc-400 max-w-2xl mx-auto mb-12">{t("catalogo.subtitle")}</p>
            
            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
               {[
@@ -459,7 +463,7 @@ export function LandingPage({ onEnter }: { onEnter: () => void }) {
                 <span className="text-xl font-black tracking-tight text-white">Wonder Games<span className="text-xbox-green">Cloud</span></span>
               </div>
               <p className="text-zinc-400 text-sm leading-relaxed max-w-sm">
-                Reviva a era de ouro dos videogames. Sua plataforma definitiva para jogar clássicos do SNES, Mega Drive e PS1 diretamente do navegador com salvamento em nuvem.
+                {t("footer.desc")}
               </p>
             </div>
             
@@ -468,15 +472,15 @@ export function LandingPage({ onEnter }: { onEnter: () => void }) {
               <ul className="space-y-3">
                 <li><button onClick={onEnter} className="text-zinc-400 hover:text-xbox-green transition-colors text-sm">Entrar na Plataforma</button></li>
                 <li><a href="#" className="text-zinc-400 hover:text-xbox-green transition-colors text-sm">Catálogo de Jogos</a></li>
-                <li><a href="#" className="text-zinc-400 hover:text-xbox-green transition-colors text-sm">Sistemas Suportados</a></li>
+                <li><a href="#" className="text-zinc-400 hover:text-xbox-green transition-colors text-sm">{t("sistemas.title")}</a></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-xs">Legal</h4>
+              <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-xs">{t("footer.legal")}</h4>
               <ul className="space-y-3">
                 <li><a href="#" className="text-zinc-400 hover:text-white transition-colors text-sm">Termos de Uso</a></li>
-                <li><a href="#" className="text-zinc-400 hover:text-white transition-colors text-sm">Política de Privacidade</a></li>
+                <li><a href="#" className="text-zinc-400 hover:text-white transition-colors text-sm">{t("footer.privacy")}</a></li>
                 <li><a href="#" className="text-zinc-400 hover:text-white transition-colors text-sm">Aviso de Direitos Autorais</a></li>
               </ul>
             </div>
@@ -484,7 +488,7 @@ export function LandingPage({ onEnter }: { onEnter: () => void }) {
           
           <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/10 gap-4 text-center md:text-left">
             <p className="text-zinc-500 text-xs font-medium">
-              Wonder Games Cloud © {new Date().getFullYear()}. Feito com paixão pelos retro games.
+              Wonder Games Cloud © {new Date().getFullYear()}. {t("footer.copyright")}
             </p>
             <p className="text-zinc-500 text-xs font-medium">
               Desenvolvido por{" "}
