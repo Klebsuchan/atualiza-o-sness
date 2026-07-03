@@ -58,16 +58,3 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #107c10;
 }
-
-
-/* Anti-black-screen protections from ad networks */
-html, body {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-#root {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}

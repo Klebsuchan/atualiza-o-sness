@@ -155,7 +155,7 @@ export function LandingPage({ onEnter }: { onEnter: () => void }) {
             muted 
             loop 
             playsInline
-            animate={{ opacity: [0.2, 1, 0.2] }}
+            animate={{ opacity: [0, 1, 0] }}
             transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
             className="w-full h-full object-cover mix-blend-screen contrast-150 brightness-110 saturate-200" 
           />
