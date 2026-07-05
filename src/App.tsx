@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { GAMES, Game } from "./data/games";
+import { MegaDrivePlayer } from "./components/MegaDrivePlayer";
 import { ps1Games } from "./data/ps1Games";
 import { useAuth } from "./contexts/AuthContext";
 import { db } from "./lib/firebase";
@@ -195,8 +196,8 @@ export default function App() {
       <div className="h-[100dvh] bg-xbox-bg flex flex-col items-center justify-center gap-6">
         <div className="w-16 h-16 border-4 border-xbox-green/20 border-t-xbox-green rounded-full animate-spin"></div>
         <div className="flex flex-col items-center gap-2">
-           <h2 className="text-xl font-black italic tracking-tighter">SINCRONIZANDO REPOSITÓRIOS...</h2>
-           <p className="text-white/40 text-[10px] uppercase font-bold tracking-[0.3em]">Carregando Biblioteca Real</p>
+           <h2 className="text-xl font-black italic tracking-tighter">{t("loading.sync")}</h2>
+           <p className="text-white/40 text-[10px] uppercase font-bold tracking-[0.3em]">{t("loading.real_lib")}</p>
         </div>
       </div>
     );
@@ -255,7 +256,7 @@ export default function App() {
               {gamepadConnected && (
                 <div className="hidden md:flex items-center gap-2 bg-xbox-green/20 border border-xbox-green/50 px-3 py-1.5 rounded-full text-xbox-green">
                   <Gamepad2 className="w-4 h-4" />
-                  <span className="text-[10px] font-bold uppercase tracking-wider">Controle Conectado</span>
+                  <span className="text-[10px] font-bold uppercase tracking-wider">{t("app.controller_connected")}</span>
                 </div>
               )}
               <div className="flex items-center gap-2 group cursor-pointer" onClick={() => user ? setActiveTab("profile") : loginWithGoogle()}>
@@ -340,8 +341,8 @@ export default function App() {
             {!user ? (
               <div className="flex flex-col items-center justify-center py-20 text-center">
                 <User className="w-16 h-16 text-white/20 mb-4" />
-                <h2 className="text-2xl font-bold mb-2">Conta não conectada</h2>
-                <p className="text-text-dim mb-6 max-w-md">Faça login com o Google para salvar o seu progresso na Nuvem em qualquer jogo, visualizar seu histórico, e manter um backup seguro online sincronizado.</p>
+                <h2 className="text-2xl font-bold mb-2">{t("auth.not_connected")}</h2>
+                <p className="text-text-dim mb-6 max-w-md">{t("auth.login_reason")}</p>
                 <div className="flex flex-col items-center gap-4 w-full max-w-sm">
                   <button 
                     onClick={loginWithGoogle}
@@ -351,11 +352,11 @@ export default function App() {
                   </button>
                   {error && (
                     <div className="bg-red-500/10 border border-red-500/50 text-red-400 p-4 rounded-md text-xs text-left w-full">
-                      <strong>Erro:</strong> {error}
+                      <strong>{t("error.title")}</strong> {error}
                       {error.includes('bloqueado') && (
                          <div className="mt-2 pt-2 border-t border-red-500/20">
-                           <p>Para contornar, você pode abrir este app em uma <strong>nova janela</strong>:</p>
-                           <button onClick={() => window.open(window.location.href, '_blank')} className="mt-2 bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded uppercase tracking-wider font-bold w-full">↗️ Abrir em Nova Janela</button>
+                           <p>{t("error.open_new_window")} <strong>{t("error.new_window_link")}</strong>:</p>
+                           <button onClick={() => window.open(window.location.href, '_blank')} className="mt-2 bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded uppercase tracking-wider font-bold w-full">{t("error.btn_new_window")}</button>
                          </div>
                       )}
                     </div>
@@ -449,7 +450,7 @@ export default function App() {
                                 <Play className="w-6 h-6 fill-current pl-1" />
                               </button>
                             </div>
-                            <div className="absolute top-2 right-2 bg-xbox-green text-white px-2 py-0.5 rounded text-[8px] uppercase font-bold shadow-lg">Salvo</div>
+                            <div className="absolute top-2 right-2 bg-xbox-green text-white px-2 py-0.5 rounded text-[8px] uppercase font-bold shadow-lg">{t("profile.saved")}</div>
                           </div>
                           <h4 className="font-semibold text-xs tracking-tight line-clamp-1 group-hover:text-xbox-green transition-colors">{sg.title}</h4>
                         </div>
@@ -457,8 +458,8 @@ export default function App() {
                     </div>
                   ) : (
                     <div className="text-center py-12 glass rounded-xl border border-white/5">
-                      <p className="text-text-dim">Você ainda não tem jogos salvos na nuvem.</p>
-                      <p className="text-xs text-white/40 mt-2">Abra um jogo e clique em "Salvar Progresso" para sincronizá-lo aqui.</p>
+                      <p className="text-text-dim">{t("profile.no_saves")}</p>
+                      <p className="text-xs text-white/40 mt-2">{t("profile.no_saves_desc")}</p>
                     </div>
                   )}
                 </div>
@@ -544,7 +545,7 @@ export default function App() {
                  <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent flex items-center p-8 md:p-12">
                    <div>
                      <h1 className="text-3xl md:text-5xl font-extrabold mb-2 text-white">Playstation 1</h1>
-                     <p className="text-text-dim text-sm md:text-lg max-w-lg">Reviva a era de ouro dos jogos 3D. Selecione um jogo abaixo e comece a jogar imediatamente no navegador.</p>
+                     <p className="text-text-dim text-sm md:text-lg max-w-lg">{t("ps1.desc")}</p>
                    </div>
                  </div>
                </div>
@@ -603,7 +604,7 @@ export default function App() {
                  <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent flex items-center p-8 md:p-12">
                    <div>
                      <h1 className="text-3xl md:text-5xl font-extrabold mb-2 text-white">{t("app.nintendo")}</h1>
-                     <p className="text-text-dim text-sm md:text-lg max-w-lg">A era de ouro dos 16-bits. Clássicos inesquecíveis.</p>
+                     <p className="text-text-dim text-sm md:text-lg max-w-lg">{t("snes.desc")}</p>
                    </div>
                  </div>
                </div>
@@ -662,7 +663,7 @@ export default function App() {
                  <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent flex items-center p-8 md:p-12">
                    <div>
                      <h1 className="text-3xl md:text-5xl font-extrabold mb-2 text-white">Sega Mega Drive</h1>
-                     <p className="text-text-dim text-sm md:text-lg max-w-lg">Velocidade e atitude. Reviva a era da Sega.</p>
+                     <p className="text-text-dim text-sm md:text-lg max-w-lg">{t("mega.desc")}</p>
                    </div>
                  </div>
                </div>
@@ -749,8 +750,8 @@ export default function App() {
                 <div className="bg-white/5 p-6 rounded-full mb-6">
                   <Search className="w-12 h-12 text-white/20" />
                 </div>
-                <h2 className="text-2xl font-bold mb-2">Nenhum jogo encontrado</h2>
-                <p className="text-white/50 max-w-md">Não encontramos resultados para "{searchQuery}". Tente usar palavras-chave diferentes.</p>
+                <h2 className="text-2xl font-bold mb-2">{t("search.not_found")}</h2>
+                <p className="text-white/50 max-w-md">{t("search.not_found_desc").replace('{searchQuery}', searchQuery)}</p>
                 <button 
                   onClick={() => { setSearchQuery(""); setActiveTab("library"); }}
                   className="mt-6 text-xbox-green font-bold hover:underline"
@@ -838,11 +839,11 @@ export default function App() {
                   
                   <div className="grid grid-cols-2 gap-4 mb-8 text-[10px] md:text-xs">
                     <div className="bg-white/5 p-3 rounded-lg border border-white/5">
-                      <p className="text-xbox-green uppercase tracking-tighter mb-1 font-bold">Desenvolvedora</p>
+                      <p className="text-xbox-green uppercase tracking-tighter mb-1 font-bold">{t("game.developer")}</p>
                       <p className="text-white font-medium">{selectedGame.system === 'PS1' ? 'Sony / Third Party' : selectedGame.system === 'Mega Drive' ? 'Sega / Third Party' : 'Nintendo / Third Party'}</p>
                     </div>
                     <div className="bg-white/5 p-3 rounded-lg border border-white/5">
-                      <p className="text-xbox-green uppercase tracking-tighter mb-1 font-bold">Plataforma</p>
+                      <p className="text-xbox-green uppercase tracking-tighter mb-1 font-bold">{t("game.platform")}</p>
                       <p className="text-white font-medium">{selectedGame.system === 'PS1' ? t("app.playstation") : selectedGame.system === 'Mega Drive' ? t("app.sega") : t("app.nintendo")}</p>
                     </div>
                   </div>
@@ -891,7 +892,7 @@ export default function App() {
                 <Gamepad2 className="w-5 h-5 md:w-6 md:h-6 text-xbox-green" />
                 <div className="min-w-0">
                   <h3 className="text-xs md:text-sm font-bold leading-none truncate">{selectedGame.title}</h3>
-                  <span className="text-[8px] md:text-[10px] text-white/40 uppercase font-black tracking-widest truncate">Sessão de Nuvem Ativa</span>
+                  <span className="text-[8px] md:text-[10px] text-white/40 uppercase font-black tracking-widest truncate">{t("game.cloud_session")}</span>
                 </div>
               </div>
               <div className="flex items-center gap-2 md:gap-3">
@@ -902,7 +903,7 @@ export default function App() {
                      disabled={savingRecord}
                      className={`bg-white/10 hover:bg-white/20 text-white p-2 rounded-lg transition-all flex items-center gap-2 px-3 md:px-4 font-bold text-[10px] md:text-xs ${savingRecord ? 'opacity-50 cursor-not-allowed' : ''}`}
                    >
-                     <Cloud className="w-4 h-4 md:w-5 md:h-5" /> <span className="hidden sm:inline">{savingRecord ? 'Salvando...' : 'Salvar na Cloud'}</span><span className="sm:hidden">SALVAR</span>
+                     <Cloud className="w-4 h-4 md:w-5 md:h-5" /> <span className="hidden sm:inline">{savingRecord ? 'Salvando...' : t("game.save_cloud")}</span><span className="sm:hidden">{t("game.btn_save")}</span>
                    </button>
                 )}
                 <button 
@@ -917,23 +918,31 @@ export default function App() {
             {/* ALGORITMO LIMPO: return 0; // State Reset Successful */}
             <div className="flex-1 bg-black relative flex items-center justify-center pointer-events-auto">
               {selectedGame.playUrl ? (
-                <iframe 
-                  ref={iframeRef}
-                  key={selectedGame.id}
-                  src={selectedGame.playUrl}
-                  className="w-full h-full border-none shadow-2xl"
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
-                  sandbox="allow-scripts allow-same-origin allow-forms allow-downloads allow-modals"
-                  onLoad={() => {
-                    iframeRef.current?.focus();
-                  }}
-                  title={`Cloud Session: ${selectedGame.title}`}
-                ></iframe>
+                selectedGame.system === 'Mega Drive' ? (
+                  <MegaDrivePlayer 
+                    playUrl={selectedGame.playUrl} 
+                    title={`Cloud Session: ${selectedGame.title}`} 
+                    iframeRef={iframeRef as any}
+                  />
+                ) : (
+                  <iframe 
+                    ref={iframeRef}
+                    key={selectedGame.id}
+                    src={selectedGame.playUrl}
+                    className="w-full h-full border-none shadow-2xl"
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                    sandbox="allow-scripts allow-same-origin allow-forms allow-downloads allow-modals"
+                    onLoad={() => {
+                      iframeRef.current?.focus();
+                    }}
+                    title={`Cloud Session: ${selectedGame.title}`}
+                  ></iframe>
+                )
               ) : (
                 <div className="flex flex-col items-center justify-center p-8 text-center bg-black w-full h-full">
                   <Gamepad2 className="w-16 h-16 text-white/20 mb-4" />
-                  <h3 className="text-xl font-bold mb-2">ROM não conectada</h3>
+                  <h3 className="text-xl font-bold mb-2">{t("game.rom_not_connected")}</h3>
                   <p className="text-white/50 text-sm max-w-md">
                     Devido aos direitos autorais da Nintendo, as ROMs da biblioteca estendida do SNES ainda não estão conectadas a um emulador de nuvem compatível.
                   </p>
@@ -942,7 +951,7 @@ export default function App() {
             </div>
 
             <div className="p-3 md:p-4 bg-zinc-900 border-t border-white/5 flex justify-center gap-8 md:gap-12 text-[8px] md:text-[10px] uppercase font-bold text-white/40 tracking-[0.2em] md:tracking-[0.3em] overflow-x-auto no-scrollbar whitespace-nowrap">
-              <span>{gamepadConnected ? "🎮 CONTROLE AUTO-DETECTADO • PADRÃO SUPER NINTENDO (A CONFIRMA, B VOLTA)" : "CONTROLES: SETAS = MOVER • X/S = A/B • D/C = X/Y • ENTER = START • SHIFT = SELECT" }</span>
+              <span>{gamepadConnected ? t("game.controls_auto") : t("game.controls_manual")}</span>
             </div>
           </motion.div>
         )}
@@ -973,6 +982,7 @@ function NavItem({ icon: Icon, label, active, onClick }: { icon: any, label: str
 }
 
 function GameRow({ title, games, onGameClick, onSeeAll }: { title: string, games: Game[], onGameClick: (g: Game) => void, onSeeAll?: () => void }) {
+  const { t } = useLanguage();
   const scrollRef = useRef<HTMLDivElement>(null);
 
   if (games.length === 0) return null;
@@ -983,7 +993,7 @@ function GameRow({ title, games, onGameClick, onSeeAll }: { title: string, games
         <h2 className="text-base md:text-lg font-semibold tracking-tight text-white flex items-center justify-between w-full">
           {title}
           {onSeeAll && (
-            <span onClick={onSeeAll} className="text-xbox-green text-[10px] md:text-xs font-bold uppercase tracking-wider cursor-pointer hover:underline underline-offset-4 decoration-2">Ver todos</span>
+            <span onClick={onSeeAll} className="text-xbox-green text-[10px] md:text-xs font-bold uppercase tracking-wider cursor-pointer hover:underline underline-offset-4 decoration-2">{t("app.see_all")}</span>
           )}
         </h2>
         <div className="hidden md:flex gap-2 ml-4">
