@@ -1,92 +1,38 @@
 rules_version = '2';
-
 service cloud.firestore {
   match /databases/{database}/documents {
-
     match /{document=**} {
       allow read, write: if false;
     }
-
+    
     function isSignedIn() {
       return request.auth != null;
     }
-
-    function isValidId(id) {
-      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
-    }
-
-    function incoming() {
-      return request.resource.data;
-    }
-
-    function existing() {
-      return resource.data;
-    }
-
-    function isValidUserProfile(data) {
-      return data.keys().hasAll(['userId', 'email', 'createdAt', 'lastLoginAt']) &&
-             data.userId == request.auth.uid &&
-             data.userId is string && data.userId.size() <= 128 &&
-             data.email is string && data.email.size() <= 256 &&
-             data.createdAt is timestamp &&
-             data.lastLoginAt is timestamp &&
-             (data.get('displayName', '') is string) &&
-             (data.get('photoURL', '') is string) &&
-             (data.get('playDaysCount', 0) is number) &&
-             (data.get('lastPlayedDate', '') is string) &&
-             (data.get('xp', 0) is number);
-    }
-
-    function isValidUserGame(data) {
-      return data.keys().hasAll(['gameId', 'title', 'lastPlayedAt', 'isSaved', 'thumbnailUrl']) &&
-             data.gameId is string && data.gameId.size() <= 128 &&
-             data.title is string && data.title.size() <= 256 &&
-             data.lastPlayedAt is timestamp &&
-             data.isSaved is bool &&
-             data.thumbnailUrl is string && data.thumbnailUrl.size() <= 1024;
-    }
-
+    
     match /users/{userId} {
-      allow read: if isSignedIn() && userId == request.auth.uid;
+      allow read: if isSignedIn();
       
-      allow create: if isSignedIn() && 
-                    isValidId(userId) && 
-                    userId == request.auth.uid && 
-                    isValidUserProfile(incoming()) &&
-                    incoming().createdAt == request.time &&
-                    incoming().lastLoginAt == request.time;
-
-      allow update: if isSignedIn() && 
-                    isValidId(userId) && 
-                    userId == request.auth.uid && 
-                    isValidUserProfile(incoming()) &&
-                    incoming().userId == existing().userId &&
-                    incoming().createdAt == existing().createdAt &&
-                    incoming().lastLoginAt == request.time &&
-                    incoming().diff(existing()).affectedKeys().hasOnly(['lastLoginAt', 'displayName', 'photoURL', 'playDaysCount', 'lastPlayedDate', 'xp']);
+      allow create: if isSignedIn() && userId == request.auth.uid;
+      allow update: if isSignedIn() && userId == request.auth.uid;
+      allow delete: if false;
+      
+      match /friends/{friendId} {
+        allow read, write: if isSignedIn() && userId == request.auth.uid;
+      }
+      
+      match /invitations/{invitationId} {
+        allow read: if isSignedIn() && userId == request.auth.uid;
+        allow create: if isSignedIn();
+        allow delete, update: if isSignedIn() && userId == request.auth.uid;
+      }
+      
+      match /chats/{sessionId}/messages/{messageId} {
+        allow read, write: if isSignedIn();
+      }
       
       match /games/{gameId} {
         allow read: if isSignedIn() && userId == request.auth.uid;
-        allow list: if isSignedIn() && userId == request.auth.uid;
-
-        allow create: if isSignedIn() && 
-                      isValidId(userId) && 
-                      userId == request.auth.uid && 
-                      isValidId(gameId) &&
-                      isValidUserGame(incoming()) &&
-                      incoming().lastPlayedAt == request.time &&
-                      exists(/databases/$(database)/documents/users/$(userId));
-
-        allow update: if isSignedIn() && 
-                      isValidId(userId) && 
-                      userId == request.auth.uid && 
-                      isValidId(gameId) &&
-                      isValidUserGame(incoming()) &&
-                      incoming().gameId == existing().gameId &&
-                      incoming().lastPlayedAt == request.time &&
-                      incoming().diff(existing()).affectedKeys().hasOnly(['lastPlayedAt', 'isSaved', 'thumbnailUrl', 'title']);
-
-        allow delete: if isSignedIn() && userId == request.auth.uid;
+        allow write: if isSignedIn() && userId == request.auth.uid;
       }
     }
   }

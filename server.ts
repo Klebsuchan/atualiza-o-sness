@@ -31,7 +31,14 @@ async function startServer() {
         return res.status(400).send('Invalid URL');
       }
 
-      const response = await fetch(targetUrl, {
+      
+      const joinCode = req.query.join;
+      let fetchUrl = targetUrl;
+      if (joinCode) {
+        fetchUrl += (fetchUrl.includes('?') ? '&' : '?') + 'join=' + encodeURIComponent(joinCode);
+      }
+      const response = await fetch(fetchUrl, {
+  
         headers: { 'Referer': 'https://ssega.com/' }
       });
       let html = await response.text();
@@ -39,6 +46,7 @@ async function startServer() {
       // Inject CSS to hide everything except the emulator block
       const injectedCss = `
         <style>
+          
           /* Hide everything by default, but let #wrap be visible and take over the screen */
           body { 
             visibility: hidden !important; 
@@ -65,9 +73,19 @@ async function startServer() {
           #wrap * {
             visibility: visible !important;
           }
+          /* Show hostbar and style it */
+          .hostbar {
+            visibility: visible !important;
+            position: absolute;
+            bottom: 20px;
+            z-index: 10000;
+          }
+          .hostbar * {
+             visibility: visible !important;
+          }
           #canvas { 
             max-width: 100% !important; 
-            max-height: 100vh !important; 
+            max-height: calc(100vh - 80px) !important; 
             object-fit: contain !important; 
           }
           #startBtn { 
@@ -81,7 +99,7 @@ async function startServer() {
           
           /* Hide known overlays like ad-blocker popups */
           .adsbygoogle, iframe[src*="google"], .toast { display: none !important; }
-        </style>
+</style>
       `;
       html = html.replace('</head>', injectedCss + '</head>');
 

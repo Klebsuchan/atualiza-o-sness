@@ -1,66 +1,66 @@
 const fs = require('fs');
+let code = fs.readFileSync('src/App.tsx', 'utf8');
 
-let content = fs.readFileSync('src/contexts/LanguageContext.tsx', 'utf-8');
+// Add joinCodeInput state
+if (!code.includes("const [joinCodeInput")) {
+  code = code.replace(
+    'const [searchQuery, setSearchQuery] = useState("");',
+    'const [searchQuery, setSearchQuery] = useState("");\n  const [joinCodeInput, setJoinCodeInput] = useState("");\n  const [activeJoinCode, setActiveJoinCode] = useState<string | undefined>();'
+  );
+}
 
-const ptAdditions = `
-    'loading.sync': 'SINCRONIZANDO REPOSITÓRIOS...',
-    'loading.real_lib': 'Carregando Biblioteca Real',
-    'app.controller_connected': 'Controle Conectado',
-    'auth.not_connected': 'Conta não conectada',
-    'auth.login_reason': 'Faça login com o Google para salvar o seu progresso na Nuvem em qualquer jogo, visualizar seu histórico, e manter um backup seguro online sincronizado.',
-    'error.title': 'Erro:',
-    'error.open_new_window': 'Para contornar, você pode abrir este app em uma',
-    'error.new_window_link': 'nova janela',
-    'error.btn_new_window': '↗️ Abrir em Nova Janela',
-    'profile.saved': 'Salvo',
-    'profile.no_saves': 'Você ainda não tem jogos salvos na nuvem.',
-    'profile.no_saves_desc': 'Abra um jogo e clique em "Salvar Progresso" para sincronizá-lo aqui.',
-    'ps1.desc': 'Reviva a era de ouro dos jogos 3D. Selecione um jogo abaixo e comece a jogar imediatamente no navegador.',
-    'snes.desc': 'A era de ouro dos 16-bits. Clássicos inesquecíveis.',
-    'mega.desc': 'Velocidade e atitude. Reviva a era da Sega.',
-    'search.not_found': 'Nenhum jogo encontrado',
-    'search.not_found_desc': 'Não encontramos resultados para "{searchQuery}". Tente usar palavras-chave diferentes.',
-    'game.developer': 'Desenvolvedora',
-    'game.platform': 'Plataforma',
-    'game.cloud_session': 'Sessão de Nuvem Ativa',
-    'game.save_cloud': 'Salvar na Cloud',
-    'game.btn_save': 'SALVAR',
-    'game.rom_not_connected': 'ROM não conectada',
-    'game.controls_auto': '🎮 CONTROLE AUTO-DETECTADO • PADRÃO SUPER NINTENDO (A CONFIRMA, B VOLTA)',
-    'game.controls_manual': 'CONTROLES: SETAS = MOVER • X/S = A/B • D/C = X/Y • ENTER = START • SHIFT = SELECT',
-    'app.see_all': 'Ver todos',
+// Modify setIsPlaying to reset activeJoinCode if no join code is passed, wait
+// When user clicks the cover (solo play), it should reset activeJoinCode.
+code = code.replace(
+  'onClick={() => setIsPlaying(true)}',
+  'onClick={() => { setActiveJoinCode(undefined); setIsPlaying(true); }}'
+);
+
+// Add the multiplayer section
+const mpHtml = `
+                  <div className="bg-white/5 p-4 rounded-xl border border-white/10 mb-6 mt-4">
+                    <h3 className="text-white font-bold mb-2 text-sm flex items-center gap-2"><Gamepad2 className="w-4 h-4 text-xbox-green" /> Multiplayer Local</h3>
+                    <p className="text-text-dim text-xs">Conecte vários controles USB ou Bluetooth. O emulador reconhecerá automaticamente o Player 1 e Player 2.</p>
+                  </div>
+                  
+                  {selectedGame.system === 'Mega Drive' && (
+                  <div className="bg-white/5 p-4 rounded-xl border border-white/10 mb-6">
+                    <h3 className="text-white font-bold mb-2 text-sm flex items-center gap-2"><Cloud className="w-4 h-4 text-blue-400" /> Multiplayer Online (Netplay)</h3>
+                    <p className="text-text-dim text-xs mb-3">Para hospedar, inicie o jogo, e clique em "Netplay" na barra inferior para gerar um código/link. Para entrar no jogo de um amigo, cole o código ou link abaixo:</p>
+                    <div className="flex gap-2">
+                      <input 
+                        type="text" 
+                        placeholder="Código de Join..." 
+                        className="bg-black/50 border border-white/20 rounded-lg px-3 py-2 text-sm text-white flex-1 focus:border-xbox-green outline-none"
+                        value={joinCodeInput}
+                        onChange={(e) => setJoinCodeInput(e.target.value)}
+                      />
+                      <button 
+                        className="bg-xbox-green hover:bg-emerald-600 text-white font-bold px-4 py-2 rounded-lg text-sm transition-all"
+                        onClick={(e) => {
+                           e.stopPropagation();
+                           let code = joinCodeInput.trim();
+                           if (code.includes('join=')) {
+                              code = new URLSearchParams(code.split('?')[1]).get('join') || code;
+                           }
+                           setActiveJoinCode(code);
+                           setIsPlaying(true);
+                        }}
+                      >
+                        Entrar
+                      </button>
+                    </div>
+                  </div>
+                  )}
+                  
+                  <div className="grid grid-cols-2 gap-4 mb-8 text-[10px] md:text-xs">
 `;
+code = code.replace(/<div className="grid grid-cols-2 gap-4 mb-8 text-\[10px\] md:text-xs">/, mpHtml);
 
-const enAdditions = `
-    'loading.sync': 'SYNCHRONIZING REPOSITORIES...',
-    'loading.real_lib': 'Loading Real Library',
-    'app.controller_connected': 'Controller Connected',
-    'auth.not_connected': 'Account not connected',
-    'auth.login_reason': 'Sign in with Google to save your cloud progress in any game, view your history, and keep a secure online backup synchronized.',
-    'error.title': 'Error:',
-    'error.open_new_window': 'To bypass this, you can open this app in a',
-    'error.new_window_link': 'new window',
-    'error.btn_new_window': '↗️ Open in New Window',
-    'profile.saved': 'Saved',
-    'profile.no_saves': 'You don\'t have any games saved in the cloud yet.',
-    'profile.no_saves_desc': 'Open a game and click "Save Progress" to sync it here.',
-    'ps1.desc': 'Relive the golden era of 3D games. Select a game below and start playing immediately in the browser.',
-    'snes.desc': 'The 16-bit golden era. Unforgettable classics.',
-    'mega.desc': 'Speed and attitude. Relive the Sega era.',
-    'search.not_found': 'No games found',
-    'search.not_found_desc': 'We didn\'t find results for "{searchQuery}". Try using different keywords.',
-    'game.developer': 'Developer',
-    'game.platform': 'Platform',
-    'game.cloud_session': 'Active Cloud Session',
-    'game.save_cloud': 'Save to Cloud',
-    'game.btn_save': 'SAVE',
-    'game.rom_not_connected': 'ROM not connected',
-    'game.controls_auto': '🎮 CONTROLLER AUTO-DETECTED • SUPER NINTENDO STANDARD (A CONFIRM, B BACK)',
-    'game.controls_manual': 'CONTROLS: ARROWS = MOVE • X/S = A/B • D/C = X/Y • ENTER = START • SHIFT = SELECT',
-    'app.see_all': 'See all',
-`;
+// Pass activeJoinCode to MegaDrivePlayer
+code = code.replace(
+  'iframeRef={iframeRef as any}',
+  'iframeRef={iframeRef as any}\n                    joinCode={activeJoinCode}'
+);
 
-content = content.replace(/(\'nav\.saiba_mais\': \'Saiba Mais\',)/, `$1\n${ptAdditions}`);
-content = content.replace(/(\'nav\.saiba_mais\': \'Learn More\',)/, `$1\n${enAdditions}`);
-
-fs.writeFileSync('src/contexts/LanguageContext.tsx', content);
+fs.writeFileSync('src/App.tsx', code);
