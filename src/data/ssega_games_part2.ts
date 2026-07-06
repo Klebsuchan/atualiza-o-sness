@@ -8,8 +8,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Twinkle Tale diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/TwinkleTale.jpg",
-    bannerUrl: "https://ssega.com/thumbs/TwinkleTale.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Twinkle%20Tale%20(Japan).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Twinkle%20Tale%20(Japan).png",
     playUrl: "https://ssega.com/game/twinkle-tale"
   },
   {
@@ -19,8 +19,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Two Crude Dudes diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/TwoCrudeDudes.jpg",
-    bannerUrl: "https://ssega.com/thumbs/TwoCrudeDudes.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Two%20Crude%20Dudes%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Two%20Crude%20Dudes%20(USA).png",
     playUrl: "https://ssega.com/game/two-crude-dudes"
   },
   {
@@ -30,8 +30,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Tyrants - Fight Through Time diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/Tyrants-FightThroughTime.jpg",
-    bannerUrl: "https://ssega.com/thumbs/Tyrants-FightThroughTime.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Tyrants%20-%20Fight%20through%20Time%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Tyrants%20-%20Fight%20through%20Time%20(USA).png",
     playUrl: "https://ssega.com/game/tyrants-fight-through-time"
   },
   {
@@ -41,8 +41,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Ultimate Mortal Kombat 3 diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/ultimatemortalkombat3.jpg",
-    bannerUrl: "https://ssega.com/thumbs/ultimatemortalkombat3.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Ultimate%20Mortal%20Kombat%203%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Ultimate%20Mortal%20Kombat%203%20(USA).png",
     playUrl: "https://ssega.com/game/ultimate-mortal-kombat-3"
   },
   {
@@ -52,8 +52,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Ultimate Mortal Kombat 3 Hack diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/UMK3H.png",
-    bannerUrl: "https://ssega.com/thumbs/UMK3H.png",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Ultimate%20Mortal%20Kombat%203%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Ultimate%20Mortal%20Kombat%203%20(USA).png",
     playUrl: "https://ssega.com/game/ultimate-mortal-kombat-3-hack"
   },
   {
@@ -63,8 +63,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Ultimate Mortal Kombat Trilogy diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/UltimateMortalKombatTrilogy.jpg",
-    bannerUrl: "https://ssega.com/thumbs/UltimateMortalKombatTrilogy.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Ultimate%20Mortal%20Kombat%203%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Ultimate%20Mortal%20Kombat%203%20(USA).png",
     playUrl: "https://ssega.com/game/ultimate-mortal-kombat-trilogy"
   },
   {
@@ -74,8 +74,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Ultimate Qix diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/UltimateQix.jpg",
-    bannerUrl: "https://ssega.com/thumbs/UltimateQix.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Ultimate%20QIX%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Ultimate%20QIX%20(USA).png",
     playUrl: "https://ssega.com/game/ultimate-qix"
   },
   {
@@ -85,8 +85,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Ultimate Soccer diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/UltimateSoccer.jpg",
-    bannerUrl: "https://ssega.com/thumbs/UltimateSoccer.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Ultimate%20Soccer%20(Europe)%20(En,Fr,De,Es,It).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Ultimate%20Soccer%20(Europe)%20(En,Fr,De,Es,It).png",
     playUrl: "https://ssega.com/game/ultimate-soccer"
   },
   {
@@ -96,8 +96,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Ultraman diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/Ultraman.jpg",
-    bannerUrl: "https://ssega.com/thumbs/Ultraman.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Ultraman%20(Japan).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Ultraman%20(Japan).png",
     playUrl: "https://ssega.com/game/ultraman"
   },
   {
@@ -107,8 +107,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Uncharted Waters diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/UnchartedWaters.jpg",
-    bannerUrl: "https://ssega.com/thumbs/UnchartedWaters.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Uncharted%20Waters%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Uncharted%20Waters%20(USA).png",
     playUrl: "https://ssega.com/game/uncharted-waters"
   },
   {
@@ -129,8 +129,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Undead Line diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/UndeadLine.jpg",
-    bannerUrl: "https://ssega.com/thumbs/UndeadLine.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Undead%20Line%20(Japan).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Undead%20Line%20(Japan).png",
     playUrl: "https://ssega.com/game/undead-line"
   },
   {
@@ -140,8 +140,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Universal Soldier diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/UniversalSoldier.jpg",
-    bannerUrl: "https://ssega.com/thumbs/UniversalSoldier.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Universal%20Soldier%20(USA,%20Europe)%20(Unl).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Universal%20Soldier%20(USA,%20Europe)%20(Unl).png",
     playUrl: "https://ssega.com/game/universal-soldier"
   },
   {
@@ -151,8 +151,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Unnecessary Roughness 95 diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/UnnecessaryRoughness95.jpg",
-    bannerUrl: "https://ssega.com/thumbs/UnnecessaryRoughness95.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Unnecessary%20Roughness%20'95%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Unnecessary%20Roughness%20'95%20(USA).png",
     playUrl: "https://ssega.com/game/unnecessary-roughness-95"
   },
   {
@@ -173,8 +173,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Urban Strike diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/UrbanStrike.jpg",
-    bannerUrl: "https://ssega.com/thumbs/UrbanStrike.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Urban%20Strike%20(USA,%20Europe).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Urban%20Strike%20(USA,%20Europe).png",
     playUrl: "https://ssega.com/game/urban-strike"
   },
   {
@@ -195,8 +195,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Valis diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/Valis.jpg",
-    bannerUrl: "https://ssega.com/thumbs/Valis.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Valis%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Valis%20(USA).png",
     playUrl: "https://ssega.com/game/valis"
   },
   {
@@ -206,8 +206,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Valis III diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/ValisIII.jpg",
-    bannerUrl: "https://ssega.com/thumbs/ValisIII.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Valis%20III%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Valis%20III%20(USA).png",
     playUrl: "https://ssega.com/game/valis-iii"
   },
   {
@@ -217,8 +217,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Valis SD diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/ValisSD.jpg",
-    bannerUrl: "https://ssega.com/thumbs/ValisSD.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/SD%20Valis%20(Japan).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/SD%20Valis%20(Japan).png",
     playUrl: "https://ssega.com/game/valis-sd"
   },
   {
@@ -228,8 +228,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Vapor Trail diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/VaporTrail.jpg",
-    bannerUrl: "https://ssega.com/thumbs/VaporTrail.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Vapor%20Trail%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Vapor%20Trail%20(USA).png",
     playUrl: "https://ssega.com/game/vapor-trail"
   },
   {
@@ -250,8 +250,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Vectorman diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/Vectorman.jpg",
-    bannerUrl: "https://ssega.com/thumbs/Vectorman.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Vectorman%20(USA,%20Europe)%20(Sega%20Smash%20Pack%202).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Vectorman%20(USA,%20Europe)%20(Sega%20Smash%20Pack%202).png",
     playUrl: "https://ssega.com/game/vectorman"
   },
   {
@@ -261,8 +261,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Vectorman 2 diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/Vectorman2.jpg",
-    bannerUrl: "https://ssega.com/thumbs/Vectorman2.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Vectorman%202%20(USA)%20(Sample)%20(1996-08-28).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Vectorman%202%20(USA)%20(Sample)%20(1996-08-28).png",
     playUrl: "https://ssega.com/game/vectorman-2"
   },
   {
@@ -272,8 +272,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Verytex diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/verytex.png",
-    bannerUrl: "https://ssega.com/thumbs/verytex.png",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Verytex%20(Japan).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Verytex%20(Japan).png",
     playUrl: "https://ssega.com/game/verytex"
   },
   {
@@ -283,8 +283,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Viewpoint diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/Viewpoint.jpg",
-    bannerUrl: "https://ssega.com/thumbs/Viewpoint.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Viewpoint%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Viewpoint%20(USA).png",
     playUrl: "https://ssega.com/game/viewpoint"
   },
   {
@@ -294,8 +294,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Virtua Fighter 2 diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/VirtuaFighter2.jpg",
-    bannerUrl: "https://ssega.com/thumbs/VirtuaFighter2.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Virtua%20Fighter%202%20(USA,%20Europe).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Virtua%20Fighter%202%20(USA,%20Europe).png",
     playUrl: "https://ssega.com/game/virtua-fighter-2"
   },
   {
@@ -305,8 +305,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Virtua Racing diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/VirtuaRacing.jpg",
-    bannerUrl: "https://ssega.com/thumbs/VirtuaRacing.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Virtua%20Racing%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Virtua%20Racing%20(USA).png",
     playUrl: "https://ssega.com/game/virtua-racing"
   },
   {
@@ -316,8 +316,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Virtual Pinball diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/VirtualPinball.jpg",
-    bannerUrl: "https://ssega.com/thumbs/VirtualPinball.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Virtual%20Pinball%20(USA,%20Europe).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Virtual%20Pinball%20(USA,%20Europe).png",
     playUrl: "https://ssega.com/game/virtual-pinball"
   },
   {
@@ -327,8 +327,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Vixen 357 diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/Vixen357.jpg",
-    bannerUrl: "https://ssega.com/thumbs/Vixen357.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Vixen%20357%20(Japan).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Vixen%20357%20(Japan).png",
     playUrl: "https://ssega.com/game/vixen-357"
   },
   {
@@ -349,8 +349,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Wani Wani World diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WaniWaniWorld.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WaniWaniWorld.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wani%20Wani%20World%20(Japan).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wani%20Wani%20World%20(Japan).png",
     playUrl: "https://ssega.com/game/wani-wani-world"
   },
   {
@@ -360,8 +360,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Wardner diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/Wardner.jpg",
-    bannerUrl: "https://ssega.com/thumbs/Wardner.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wardner%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wardner%20(USA).png",
     playUrl: "https://ssega.com/game/wardner"
   },
   {
@@ -382,8 +382,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Warlock diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/Warlock.jpg",
-    bannerUrl: "https://ssega.com/thumbs/Warlock.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Warlock%20(USA,%20Europe).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Warlock%20(USA,%20Europe).png",
     playUrl: "https://ssega.com/game/warlock"
   },
   {
@@ -404,8 +404,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Warrior of Rome diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WarriorofRome.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WarriorofRome.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Warrior%20of%20Rome%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Warrior%20of%20Rome%20(USA).png",
     playUrl: "https://ssega.com/game/warrior-of-rome"
   },
   {
@@ -415,8 +415,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Warrior of Rome II diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WarriorofRomeII.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WarriorofRomeII.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Warrior%20of%20Rome%20II%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Warrior%20of%20Rome%20II%20(USA).png",
     playUrl: "https://ssega.com/game/warrior-of-rome-ii"
   },
   {
@@ -426,8 +426,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Warsong diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/Warsong.jpg",
-    bannerUrl: "https://ssega.com/thumbs/Warsong.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Warsong%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Warsong%20(USA).png",
     playUrl: "https://ssega.com/game/warsong"
   },
   {
@@ -437,8 +437,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Warsong 2 diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/Warsong2.jpg",
-    bannerUrl: "https://ssega.com/thumbs/Warsong2.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Warsong%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Warsong%20(USA).png",
     playUrl: "https://ssega.com/game/warsong-2"
   },
   {
@@ -448,8 +448,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Waterworld diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/Waterworld.jpg",
-    bannerUrl: "https://ssega.com/thumbs/Waterworld.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Waterworld%20(Europe)%20(Proto).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Waterworld%20(Europe)%20(Proto).png",
     playUrl: "https://ssega.com/game/waterworld"
   },
   {
@@ -470,8 +470,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Weaponlord diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/Weaponlord.jpg",
-    bannerUrl: "https://ssega.com/thumbs/Weaponlord.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/WeaponLord%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/WeaponLord%20(USA).png",
     playUrl: "https://ssega.com/game/weaponlord"
   },
   {
@@ -492,8 +492,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Wheel of Fortune diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WheelofFortune.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WheelofFortune.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wheel%20of%20Fortune%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wheel%20of%20Fortune%20(USA).png",
     playUrl: "https://ssega.com/game/wheel-of-fortune"
   },
   {
@@ -503,8 +503,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Where in the World is Carmen Sandiego diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WhereintheWorldisCarmenSandiego.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WhereintheWorldisCarmenSandiego.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Where%20in%20the%20World%20Is%20Carmen%20Sandiego%20(USA,%20Europe)%20(En,Fr,De,Es,It).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Where%20in%20the%20World%20Is%20Carmen%20Sandiego%20(USA,%20Europe)%20(En,Fr,De,Es,It).png",
     playUrl: "https://ssega.com/game/where-in-the-world-is-carmen-sandiego"
   },
   {
@@ -536,8 +536,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Williams Arcades Greatest Hits diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WilliamsArcadesGreatestHits.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WilliamsArcadesGreatestHits.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Williams%20Arcade's%20Greatest%20Hits%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Williams%20Arcade's%20Greatest%20Hits%20(USA).png",
     playUrl: "https://ssega.com/game/williams-arcades-greatest-hits"
   },
   {
@@ -547,8 +547,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Wimbledon Championship Tennis diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WimbledonChampionshipTennis.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WimbledonChampionshipTennis.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wimbledon%20Championship%20Tennis%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wimbledon%20Championship%20Tennis%20(USA).png",
     playUrl: "https://ssega.com/game/wimbledon-championship-tennis"
   },
   {
@@ -558,8 +558,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Wings of Wor diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WingsofWor.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WingsofWor.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wings%20of%20Wor%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wings%20of%20Wor%20(USA).png",
     playUrl: "https://ssega.com/game/wings-of-wor"
   },
   {
@@ -569,8 +569,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Winter Challenge diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WinterChallenge.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WinterChallenge.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Winter%20Challenge%20(USA,%20Europe)%20(Unl).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Winter%20Challenge%20(USA,%20Europe)%20(Unl).png",
     playUrl: "https://ssega.com/game/winter-challenge"
   },
   {
@@ -580,8 +580,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Wiz n Liz diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WiznLiz.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WiznLiz.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wiz%20'N'%20Liz%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wiz%20'N'%20Liz%20(USA).png",
     playUrl: "https://ssega.com/game/wiz-n-liz"
   },
   {
@@ -591,8 +591,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Wolf Child diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WolfChild.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WolfChild.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wolfchild%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wolfchild%20(USA).png",
     playUrl: "https://ssega.com/game/wolf-child"
   },
   {
@@ -613,8 +613,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Wolverine: Adamantium Rage diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WolverineAdamantiumRage.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WolverineAdamantiumRage.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wolverine%20-%20Adamantium%20Rage%20(USA,%20Europe).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wolverine%20-%20Adamantium%20Rage%20(USA,%20Europe).png",
     playUrl: "https://ssega.com/game/wolverine-adamantium-rage"
   },
   {
@@ -624,8 +624,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Wonder Boy III - Monster Lair diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WonderBoyIII-MonsterLair.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WonderBoyIII-MonsterLair.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wonder%20Boy%20III%20-%20Monster%20Lair%20(Japan).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wonder%20Boy%20III%20-%20Monster%20Lair%20(Japan).png",
     playUrl: "https://ssega.com/game/wonder-boy-iii-monster-lair"
   },
   {
@@ -635,8 +635,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Wonder Boy In Monster World diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WonderBoyInMonsterWorld.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WonderBoyInMonsterWorld.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wonder%20Boy%20in%20Monster%20World%20(USA,%20Europe).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wonder%20Boy%20in%20Monster%20World%20(USA,%20Europe).png",
     playUrl: "https://ssega.com/game/wonder-boy-in-monster-world"
   },
   {
@@ -646,8 +646,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Wonder Boy V - Monster World III diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WonderBoyV-MonsterWorldIII.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WonderBoyV-MonsterWorldIII.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wonder%20Boy%20V%20-%20Monster%20World%20III%20(Japan,%20Korea)%20(Ja).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wonder%20Boy%20V%20-%20Monster%20World%20III%20(Japan,%20Korea)%20(Ja).png",
     playUrl: "https://ssega.com/game/wonder-boy-v-monster-world-iii"
   },
   {
@@ -657,8 +657,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue World Championship Soccer diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WorldChampionshipSoccer.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WorldChampionshipSoccer.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/World%20Championship%20Soccer%20II%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/World%20Championship%20Soccer%20II%20(USA).png",
     playUrl: "https://ssega.com/game/world-championship-soccer"
   },
   {
@@ -668,8 +668,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue World Championship Soccer 2 diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WorldChampionshipSoccer2.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WorldChampionshipSoccer2.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/World%20Championship%20Soccer%20II%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/World%20Championship%20Soccer%20II%20(USA).png",
     playUrl: "https://ssega.com/game/world-championship-soccer-2"
   },
   {
@@ -679,8 +679,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue World Heroes diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WorldHeroes.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WorldHeroes.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/World%20Heroes%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/World%20Heroes%20(USA).png",
     playUrl: "https://ssega.com/game/world-heroes"
   },
   {
@@ -690,8 +690,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue World of Illusion Starring Mickey Mouse &amp; Donald Duck diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/MickeyMouse-WorldofIllusion.jpg",
-    bannerUrl: "https://ssega.com/thumbs/MickeyMouse-WorldofIllusion.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/World%20of%20Illusion%20Starring%20Mickey%20Mouse%20and%20Donald%20Duck%20(Europe).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/World%20of%20Illusion%20Starring%20Mickey%20Mouse%20and%20Donald%20Duck%20(Europe).png",
     playUrl: "https://ssega.com/game/mickey-mouse-world-of-illusion"
   },
   {
@@ -701,8 +701,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue World Trophy Soccer diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/world-trophy-soccer.png",
-    bannerUrl: "https://ssega.com/thumbs/world-trophy-soccer.png",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/World%20Trophy%20Soccer%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/World%20Trophy%20Soccer%20(USA).png",
     playUrl: "https://ssega.com/game/world-trophy-soccer"
   },
   {
@@ -712,8 +712,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Worms diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/Worms.jpg",
-    bannerUrl: "https://ssega.com/thumbs/Worms.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Worms%20(Europe).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Worms%20(Europe).png",
     playUrl: "https://ssega.com/game/worms"
   },
   {
@@ -723,8 +723,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Wrestle War diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WrestleWar.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WrestleWar.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wrestle%20War%20(Japan,%20Europe)%20(En).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wrestle%20War%20(Japan,%20Europe)%20(En).png",
     playUrl: "https://ssega.com/game/wrestle-war"
   },
   {
@@ -734,8 +734,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Wrestleball diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/Wrestleball.jpg",
-    bannerUrl: "https://ssega.com/thumbs/Wrestleball.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wrestleball%20(Japan).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Wrestleball%20(Japan).png",
     playUrl: "https://ssega.com/game/wrestleball"
   },
   {
@@ -745,8 +745,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue WWF RAW diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WWFRAW.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WWFRAW.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/WWF%20Raw%20(World).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/WWF%20Raw%20(World).png",
     playUrl: "https://ssega.com/game/wwf-raw"
   },
   {
@@ -756,8 +756,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue WWF Royal Rumble diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WWFRoyalRumble.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WWFRoyalRumble.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/WWF%20Royal%20Rumble%20(World).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/WWF%20Royal%20Rumble%20(World).png",
     playUrl: "https://ssega.com/game/wwf-royal-rumble"
   },
   {
@@ -767,8 +767,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue WWF Super Wrestlemania diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WWFSuperWrestlemania.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WWFSuperWrestlemania.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/WWF%20Super%20WrestleMania%20(USA,%20Europe).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/WWF%20Super%20WrestleMania%20(USA,%20Europe).png",
     playUrl: "https://ssega.com/game/wwf-super-wrestlemania"
   },
   {
@@ -778,8 +778,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue WWF Wrestlemania: The Arcade Game diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/WWFWrestlemaniaArcade.jpg",
-    bannerUrl: "https://ssega.com/thumbs/WWFWrestlemaniaArcade.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/WWF%20WrestleMania%20-%20The%20Arcade%20Game%20(USA,%20Europe).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/WWF%20WrestleMania%20-%20The%20Arcade%20Game%20(USA,%20Europe).png",
     playUrl: "https://ssega.com/game/wwf-wrestlemania"
   },
   {
@@ -789,8 +789,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue X Dazedly Ray diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/XDazedlyRay.jpg",
-    bannerUrl: "https://ssega.com/thumbs/XDazedlyRay.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/XDR%20-%20X-Dazedly-Ray%20(Japan).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/XDR%20-%20X-Dazedly-Ray%20(Japan).png",
     playUrl: "https://ssega.com/game/x-dazedly-ray"
   },
   {
@@ -800,8 +800,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue X-Men diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/X-Men.jpg",
-    bannerUrl: "https://ssega.com/thumbs/X-Men.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/X-Men%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/X-Men%20(USA).png",
     playUrl: "https://ssega.com/game/x-men"
   },
   {
@@ -811,8 +811,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue X-Men 2: Clone Wars diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/X-Men2-CloneWars.jpg",
-    bannerUrl: "https://ssega.com/thumbs/X-Men2-CloneWars.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/X-Men%202%20-%20Clone%20Wars%20(USA,%20Europe).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/X-Men%202%20-%20Clone%20Wars%20(USA,%20Europe).png",
     playUrl: "https://ssega.com/game/x-men-2-clonewars"
   },
   {
@@ -822,8 +822,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue X-perts diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/X-perts.jpg",
-    bannerUrl: "https://ssega.com/thumbs/X-perts.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/X-Perts%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/X-Perts%20(USA).png",
     playUrl: "https://ssega.com/game/xperts"
   },
   {
@@ -833,8 +833,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Xenon 2 Megablast diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/Xenon2Megablast.jpg",
-    bannerUrl: "https://ssega.com/thumbs/Xenon2Megablast.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Xenon%202%20-%20Megablast%20(Europe).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Xenon%202%20-%20Megablast%20(Europe).png",
     playUrl: "https://ssega.com/game/xenon-2-megablast"
   },
   {
@@ -888,8 +888,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Yogi Bears Cartoon Capers diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/YogiBearsCartoonCapers.jpg",
-    bannerUrl: "https://ssega.com/thumbs/YogiBearsCartoonCapers.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Yogi%20Bear%20-%20Cartoon%20Capers%20(Europe).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Yogi%20Bear%20-%20Cartoon%20Capers%20(Europe).png",
     playUrl: "https://ssega.com/game/yogi-bears-cartoon-capers"
   },
   {
@@ -910,8 +910,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Young Indiana Jones - Instrument of Chaos diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/YoungIndianaJones-InstrumentofChaos.jpg",
-    bannerUrl: "https://ssega.com/thumbs/YoungIndianaJones-InstrumentofChaos.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Instruments%20of%20Chaos%20Starring%20Young%20Indiana%20Jones%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Instruments%20of%20Chaos%20Starring%20Young%20Indiana%20Jones%20(USA).png",
     playUrl: "https://ssega.com/game/young-indiana-jones-instrument-of-chaos"
   },
   {
@@ -921,8 +921,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Young Indiana Jones Chronicles diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/YoungIndianaJonesChronicles.jpg",
-    bannerUrl: "https://ssega.com/thumbs/YoungIndianaJonesChronicles.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Young%20Indiana%20Jones%20Chronicles,%20The%20(USA)%20(Beta).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Young%20Indiana%20Jones%20Chronicles,%20The%20(USA)%20(Beta).png",
     playUrl: "https://ssega.com/game/young-indiana-jones-chronicles-2"
   },
   {
@@ -932,8 +932,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Ys III: Wanderers from Ys diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/YsIII-WanderersfromYs.jpg",
-    bannerUrl: "https://ssega.com/thumbs/YsIII-WanderersfromYs.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Ys%20-%20Wanderers%20from%20Ys%20(Japan).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Ys%20-%20Wanderers%20from%20Ys%20(Japan).png",
     playUrl: "https://ssega.com/game/ysiii-wanderers-from-ys"
   },
   {
@@ -943,8 +943,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Yuu Yuu Hakusho - Makyou Toitsusen diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/YuuYuuHakusho-MakyouToitsusen.jpg",
-    bannerUrl: "https://ssega.com/thumbs/YuuYuuHakusho-MakyouToitsusen.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Yu%20Yu%20Hakusho%20-%20Makyou%20Toitsusen%20(Japan).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Yu%20Yu%20Hakusho%20-%20Makyou%20Toitsusen%20(Japan).png",
     playUrl: "https://ssega.com/game/yuu-yuu-hakusho-makyou-toitsusen"
   },
   {
@@ -954,8 +954,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Yuu Yuu Hakusho Gaiden diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/YuuYuuHakushoGaiden.jpg",
-    bannerUrl: "https://ssega.com/thumbs/YuuYuuHakushoGaiden.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Yu%20Yu%20Hakusho%20Gaiden%20(Japan).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Yu%20Yu%20Hakusho%20Gaiden%20(Japan).png",
     playUrl: "https://ssega.com/game/yuu-yuu-hakusho-gaiden"
   },
   {
@@ -976,8 +976,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Zany Golf diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/ZanyGolf.jpg",
-    bannerUrl: "https://ssega.com/thumbs/ZanyGolf.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Zany%20Golf%20(USA,%20Europe).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Zany%20Golf%20(USA,%20Europe).png",
     playUrl: "https://ssega.com/game/zany-golf"
   },
   {
@@ -987,8 +987,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Zero the Kamikaze Squirrel diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/ZerotheKamikazeSquirrel.jpg",
-    bannerUrl: "https://ssega.com/thumbs/ZerotheKamikazeSquirrel.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Zero%20the%20Kamikaze%20Squirrel%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Zero%20the%20Kamikaze%20Squirrel%20(USA).png",
     playUrl: "https://ssega.com/game/zero-the-kamikaze-squirrel"
   },
   {
@@ -998,8 +998,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Zero Tolerance diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/ZeroTolerance.jpg",
-    bannerUrl: "https://ssega.com/thumbs/ZeroTolerance.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Zero%20Tolerance%20(USA,%20Europe).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Zero%20Tolerance%20(USA,%20Europe).png",
     playUrl: "https://ssega.com/game/zero-tolerance"
   },
   {
@@ -1009,8 +1009,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Zero Wing diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/ZeroWing.jpg",
-    bannerUrl: "https://ssega.com/thumbs/ZeroWing.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Zero%20Wing%20(World)%20(Retro-Bit).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Zero%20Wing%20(World)%20(Retro-Bit).png",
     playUrl: "https://ssega.com/game/zero-wing"
   },
   {
@@ -1031,8 +1031,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Zombies Ate My Neighbors diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/ZombiesAteMyNeighbors.jpg",
-    bannerUrl: "https://ssega.com/thumbs/ZombiesAteMyNeighbors.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Zombies%20Ate%20My%20Neighbors%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Zombies%20Ate%20My%20Neighbors%20(USA).png",
     playUrl: "https://ssega.com/game/zombies-ate-my-neighbors"
   },
   {
@@ -1053,8 +1053,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Zoom diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/Zoom.jpg",
-    bannerUrl: "https://ssega.com/thumbs/Zoom.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Zoom!%20(World).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Zoom!%20(World).png",
     playUrl: "https://ssega.com/game/zoom"
   },
   {
@@ -1064,8 +1064,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue Zoop diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/Zoop.jpg",
-    bannerUrl: "https://ssega.com/thumbs/Zoop.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Zoop%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Zoop%20(USA).png",
     playUrl: "https://ssega.com/game/zoop"
   },
   {
@@ -1108,8 +1108,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue 3 Ninja Kick Back diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/3ninjakickback.jpg",
-    bannerUrl: "https://ssega.com/thumbs/3ninjakickback.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/3%20Ninjas%20Kick%20Back%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/3%20Ninjas%20Kick%20Back%20(USA).png",
     playUrl: "https://ssega.com/game/3-ninja-kick-back"
   },
   {
@@ -1119,8 +1119,8 @@ export const ssega_games_part2: Game[] = [
     description: "Jogue 6-Pak diretamente no seu navegador!",
     rating: 4.5,
     system: "Mega Drive",
-    imageUrl: "https://ssega.com/thumbs/6-Pak.png",
-    bannerUrl: "https://ssega.com/thumbs/6-Pak.png",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/6-Pak%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/6-Pak%20(USA).png",
     playUrl: "https://ssega.com/game/6-pak"
   }
 ];

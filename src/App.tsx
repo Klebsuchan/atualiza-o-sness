@@ -21,11 +21,13 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { GAMES, Game } from "./data/games";
-import { MegaDrivePlayer } from "./components/MegaDrivePlayer";
+import { CloudPlayer } from "./components/CloudPlayer";
+import { ChatComponent } from "./components/ChatComponent";
+import { GlobalLeaderboard } from "./components/GlobalLeaderboard";
 import { ps1Games } from "./data/ps1Games";
 import { useAuth } from "./contexts/AuthContext";
 import { db } from "./lib/firebase";
-import { collection, query, getDocs, doc, setDoc, serverTimestamp, deleteDoc, increment } from "firebase/firestore";
+import { collection, query, getDocs, getDoc, onSnapshot, doc, setDoc, serverTimestamp, deleteDoc, increment } from "firebase/firestore";
 import { useGamepad } from "./hooks/useGamepad";
 import { LandingPage } from "./components/LandingPage";
 import { useLanguage } from "./contexts/LanguageContext";
@@ -59,10 +61,107 @@ export default function App() {
   const [selectedGame, setSelectedGame] = useState<Game | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [joinCodeInput, setJoinCodeInput] = useState("");
+  const [activeJoinCode, setActiveJoinCode] = useState<string | undefined>();
   const [activeTab, setActiveTab] = useState("home");
   const [featuredGame, setFeaturedGame] = useState<Game>(GAMES[0]);
   const [savedGames, setSavedGames] = useState<any[]>([]);
   const [savingRecord, setSavingRecord] = useState(false);
+  const [friends, setFriends] = useState<any[]>([]);
+  const [invitations, setInvitations] = useState<any[]>([]);
+  const [inviteFriendId, setInviteFriendId] = useState("");
+
+  const [friendIdInput, setFriendIdInput] = useState("");
+  const [addingFriend, setAddingFriend] = useState(false);
+  const [friendError, setFriendError] = useState("");
+  const [friendSuccess, setFriendSuccess] = useState("");
+  const [isEditingProfile, setIsEditingProfile] = useState(false);
+  const [editDisplayName, setEditDisplayName] = useState("");
+  const [editPhotoURL, setEditPhotoURL] = useState("");
+  const [isSavingProfile, setIsSavingProfile] = useState(false);
+
+  const handleOpenEditProfile = () => {
+    if (user) {
+      setEditDisplayName(user.displayName || "");
+      setEditPhotoURL(user.photoURL || "");
+      setIsEditingProfile(true);
+    }
+  };
+
+  
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const MAX_WIDTH = 300;
+        const MAX_HEIGHT = 300;
+        let width = img.width;
+        let height = img.height;
+
+        if (width > height) {
+          if (width > MAX_WIDTH) {
+            height = Math.round((height *= MAX_WIDTH / width));
+            width = MAX_WIDTH;
+          }
+        } else {
+          if (height > MAX_HEIGHT) {
+            width = Math.round((width *= MAX_HEIGHT / height));
+            height = MAX_HEIGHT;
+          }
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          ctx.drawImage(img, 0, 0, width, height);
+          const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+          setEditPhotoURL(dataUrl);
+        }
+      };
+      if (event.target?.result) {
+        img.src = event.target.result as string;
+      }
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleSaveProfile = async () => {
+    if (!user) return;
+    setIsSavingProfile(true);
+    try {
+      // Update Firebase Auth Profile
+      const { updateProfile } = await import('firebase/auth');
+      await updateProfile(user, {
+        displayName: editDisplayName,
+        photoURL: editPhotoURL
+      });
+      
+      // Update Firestore User Document
+      const userRef = doc(db, 'users', user.uid);
+      await setDoc(userRef, {
+        displayName: editDisplayName,
+        photoURL: editPhotoURL
+      }, { merge: true });
+      
+      setIsEditingProfile(false);
+      // Force reload auth state if necessary, but onSnapshot might handle it, or we just rely on react state. Actually, changing user object directly is not recommended, but reloading window works or we can just let context handle it.
+      window.location.reload();
+    } catch (e: any) {
+      console.error(e);
+      alert("Erro ao salvar perfil: " + e.message);
+    }
+    setIsSavingProfile(false);
+  };
+
+  const [friendSearchResults, setFriendSearchResults] = useState<any[]>([]);
+  const [isSearchingFriend, setIsSearchingFriend] = useState(false);
+
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   const handleGamepadPress = useCallback((btnIdx: number) => {
@@ -115,6 +214,7 @@ export default function App() {
   useEffect(() => {
     if (user && activeTab === "profile") {
       fetchSavedGames();
+      fetchFriends();
     }
   }, [user, activeTab]);
 
@@ -139,6 +239,129 @@ export default function App() {
       }
     };
   }, [isPlaying, user]);
+
+  
+  
+  const handleSendInvite = async () => {
+    if (!user || !inviteFriendId || !joinCodeInput.trim() || !selectedGame) return;
+    try {
+      const inviteRef = doc(collection(db, `users/${inviteFriendId}/invitations`));
+      await setDoc(inviteRef, {
+        fromUserId: user.uid,
+        fromUserName: user.displayName || 'Alguém',
+        gameId: selectedGame.id,
+        gameTitle: selectedGame.title,
+        joinCode: joinCodeInput.trim(),
+        createdAt: serverTimestamp()
+      });
+      alert("Convite enviado com sucesso!");
+    } catch (e) {
+      console.error(e);
+      alert("Erro ao enviar convite.");
+    }
+  };
+
+  const deleteInvite = async (inviteId: string) => {
+    if (!user) return;
+    try {
+      await deleteDoc(doc(db, `users/${user.uid}/invitations`, inviteId));
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  useEffect(() => {
+    if (!user) {
+      setInvitations([]);
+      return;
+    }
+    const unsubscribe = onSnapshot(collection(db, `users/${user.uid}/invitations`), (snap) => {
+      const inv = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setInvitations(inv);
+    });
+    return () => unsubscribe();
+  }, [user]);
+
+  const fetchFriends = async () => {
+    if (!user) return;
+    try {
+      const q = query(collection(db, `users/${user.uid}/friends`));
+      const querySnapshot = await getDocs(q);
+      const friendsList = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      setFriends(friendsList);
+    } catch (e) {
+      console.error("Error fetching friends:", e);
+    }
+  };
+
+  const handleSearchFriend = async () => {
+    if (!user || !friendIdInput.trim()) return;
+    setIsSearchingFriend(true);
+    setFriendError("");
+    setFriendSuccess("");
+    setFriendSearchResults([]);
+    
+    try {
+      const searchTerm = friendIdInput.trim().toLowerCase();
+      const usersRef = collection(db, 'users');
+      const q = query(usersRef);
+      const snapshot = await getDocs(q);
+      
+      const results: any[] = [];
+      snapshot.forEach(doc => {
+         const data = doc.data();
+         if (doc.id === user.uid) return; // don't show self
+         
+         const nameMatch = data.displayName?.toLowerCase().includes(searchTerm);
+         const emailMatch = data.email?.toLowerCase().includes(searchTerm);
+         const idMatch = doc.id === friendIdInput.trim();
+         
+         if (nameMatch || emailMatch || idMatch) {
+            results.push({ id: doc.id, ...data });
+         }
+      });
+      
+      if (results.length === 0) {
+        setFriendError("Nenhum usuário encontrado com esse nome ou e-mail.");
+      } else {
+        setFriendSearchResults(results);
+      }
+    } catch (e: any) {
+      console.error(e);
+      setFriendError("Erro ao buscar usuários: " + e.message);
+    }
+    setIsSearchingFriend(false);
+  };
+
+  const handleAddFriend = async (targetId: string, targetData: any) => {
+    if (!user) return;
+    setAddingFriend(true);
+    setFriendError("");
+    setFriendSuccess("");
+    try {
+      const friendRef = doc(db, `users/${user.uid}/friends`, targetId);
+      await setDoc(friendRef, {
+         addedAt: serverTimestamp(),
+         displayName: targetData.displayName || "Unknown",
+         photoURL: targetData.photoURL || "",
+         userId: targetId
+      });
+      
+      setFriendSuccess("Amigo adicionado!");
+      setFriendSearchResults([]);
+      setFriendIdInput("");
+      fetchFriends();
+    } catch (e: any) {
+      console.error("Error adding friend", e);
+      setFriendError("Erro: " + e.message);
+    }
+    setAddingFriend(false);
+  };
+
+  // Remove old handleAddFriend if it exists, wait, I will replace the old one entirely.
 
   const fetchSavedGames = async () => {
     if (!user) return;
@@ -211,26 +434,7 @@ export default function App() {
           <img src="/logo.png" alt="Wonder Games Cloud" className="w-10 h-10 object-contain" />
         </div>
         
-        <div className="flex md:flex-col gap-6 md:gap-8 items-center justify-around w-full md:w-auto">
-          <NavItem icon={Home} label="Home" active={activeTab === "home"} onClick={() => setActiveTab("home")} />
-          <NavItem icon={Gamepad2} label="SNES" active={activeTab === "snes"} onClick={() => setActiveTab("snes")} />
-          <NavItem icon={Gamepad2} label={t("app.sega")} active={activeTab === "megadrive"} onClick={() => setActiveTab("megadrive")} />
-          <NavItem icon={Library} label="Biblioteca" active={activeTab === "library"} onClick={() => setActiveTab("library")} />
-          <NavItem icon={Radio} label="PS1" active={activeTab === "ps1"} onClick={() => setActiveTab("ps1")} />
-          <NavItem icon={Search} label="Buscar" active={activeTab === "search"} onClick={() => setActiveTab("search")} />
-          <div className="hidden md:block">
-            <NavItem icon={User} label="Perfil" active={activeTab === "profile"} onClick={() => setActiveTab("profile")} />
-          </div>
-          
-          <div className="md:hidden">
-             <div 
-                className="w-8 h-8 rounded-full bg-gradient-to-br from-xbox-green to-emerald-800 border-2 border-white/20 overflow-hidden cursor-pointer flex-shrink-0"
-                onClick={() => user ? setActiveTab("profile") : loginWithGoogle()}
-             >
-               <img src={user?.photoURL || "https://ui-avatars.com/api/?name=Guest&background=107C10&color=fff"} alt="Profile" referrerPolicy="no-referrer" />
-             </div>
-          </div>
-        </div>
+        <div className="flex md:flex-col gap-3 md:gap-8 items-center justify-start md:justify-around w-full md:w-auto overflow-x-auto scrollbar-hide px-4 py-2 md:px-0 md:py-0 md:overflow-visible">          <NavItem icon={Home} label="Home" active={activeTab === "home"} onClick={() => setActiveTab("home")} />          <NavItem icon={Gamepad2} label="SNES" active={activeTab === "snes"} onClick={() => setActiveTab("snes")} />          <NavItem icon={Gamepad2} label={t("app.sega")} active={activeTab === "megadrive"} onClick={() => setActiveTab("megadrive")} />          <NavItem icon={Radio} label="PS1" active={activeTab === "ps1"} onClick={() => setActiveTab("ps1")} />          <NavItem icon={Library} label="Biblioteca" active={activeTab === "library"} onClick={() => setActiveTab("library")} />          <NavItem icon={Search} label="Buscar" active={activeTab === "search"} onClick={() => setActiveTab("search")} />          <div className="hidden md:block">            <NavItem icon={User} label="Perfil" active={activeTab === "profile"} onClick={() => setActiveTab("profile")} />          </div>                    <div className="md:hidden flex-shrink-0">             <div                 className="w-10 h-10 rounded-full bg-gradient-to-br from-xbox-green to-emerald-800 border-2 border-white/20 overflow-hidden cursor-pointer"                onClick={() => user ? setActiveTab("profile") : loginWithGoogle()}             >               <img src={user?.photoURL || "https://ui-avatars.com/api/?name=Guest&background=107C10&color=fff"} alt="Profile" referrerPolicy="no-referrer" className="w-full h-full object-cover" />             </div>          </div>        </div>
 
         <div className="hidden md:flex flex-col gap-8 mt-auto px-4 w-full items-center">
           {/* Reserving space for future integrations like Settings */}
@@ -335,6 +539,8 @@ export default function App() {
           </section>
         )}
 
+
+        
         {/* Profile Section */}
         {activeTab === "profile" && (
           <div className="px-4 md:px-8 py-6">
@@ -374,7 +580,7 @@ export default function App() {
                         </div>
                         {userStats && (
                           <div className="absolute -bottom-2 -right-2 bg-xbox-green text-white font-extrabold text-xs md:text-sm px-2 py-1 rounded-full border-2 border-black shadow-[0_0_10px_rgba(16,124,16,1)]">
-                            LVL {userStats.level}
+                            LVL {user.email === 'braian.kleber.camargo@gmail.com' ? 'MAX' : userStats.level}
                           </div>
                         )}
                       </div>
@@ -387,24 +593,32 @@ export default function App() {
                         </div>
                       </div>
                     </div>
-                    <button 
-                      onClick={logout}
-                      className="flex items-center gap-2 bg-red-500/10 hover:bg-red-500 text-red-500 hover:text-white px-5 py-2.5 rounded-md font-bold text-xs uppercase tracking-widest transition-all"
-                    >
-                      <LogOut className="w-4 h-4" /> Sair
-                    </button>
+                    <div className="flex items-center gap-3">
+                      <button 
+                        onClick={handleOpenEditProfile}
+                        className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-md font-bold text-xs uppercase tracking-widest transition-all"
+                      >
+                        Editar Perfil
+                      </button>
+                      <button 
+                        onClick={logout}
+                        className="flex items-center gap-2 bg-red-500/10 hover:bg-red-500 text-red-500 hover:text-white px-5 py-2.5 rounded-md font-bold text-xs uppercase tracking-widest transition-all"
+                      >
+                        <LogOut className="w-4 h-4" /> Sair
+                      </button>
+                    </div>
                   </div>
                   
                   {userStats && (
                     <div className="mt-4 pt-6 border-t border-white/10 w-full flex flex-col gap-4">
                       <div className="flex justify-between items-center text-sm font-bold uppercase tracking-wider">
                         <span className="text-white/60">{t("profile.xp")}</span>
-                        <span className="text-xbox-green">{userStats.xp} / {userStats.nextLevelXp} XP</span>
+                        <span className="text-xbox-green">{user.email === 'braian.kleber.camargo@gmail.com' ? 'MÁXIMO' : `${userStats.xp} / ${userStats.nextLevelXp} XP`}</span>
                       </div>
                       <div className="w-full bg-black/50 rounded-full h-3 border border-white/10 overflow-hidden relative">
                         <div 
                           className="bg-gradient-to-r from-emerald-600 to-xbox-green h-full rounded-full relative transition-all duration-1000 ease-out" 
-                          style={{ width: `${Math.min(100, Math.max(0, ((userStats.xp - ((userStats.level - 1) * 500)) / 500) * 100))}%` }}
+                          style={{ width: user.email === 'braian.kleber.camargo@gmail.com' ? '100%' : `${Math.min(100, Math.max(0, ((userStats.xp - ((userStats.level - 1) * 500)) / 500) * 100))}%` }}
                         >
                           <div className="absolute inset-0 w-full h-full bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.2)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px] animate-shimmer"></div>
                         </div>
@@ -422,7 +636,148 @@ export default function App() {
                     </div>
                   )}
                 </div>
-                               <div className="mb-4">
+                               
+                
+                {/* Edit Profile Modal */}
+                {isEditingProfile && (
+                  <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+                    <div className="bg-zinc-900 border border-white/10 p-6 md:p-8 rounded-2xl w-full max-w-md shadow-2xl">
+                      <h3 className="text-xl font-bold text-white mb-6 uppercase tracking-widest">Editar Perfil</h3>
+                      
+                      <div className="flex flex-col gap-4 mb-6">
+                        <div>
+                          <label className="text-[10px] uppercase font-bold tracking-widest text-text-dim block mb-2">Nickname (Nome de exibição)</label>
+                          <input 
+                            type="text" 
+                            value={editDisplayName} 
+                            onChange={(e) => setEditDisplayName(e.target.value)} 
+                            className="bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-sm text-white w-full outline-none focus:border-xbox-green" 
+                            placeholder="Seu nickname..."
+                          />
+                        </div>
+                        <div>
+                          <label className="text-[10px] uppercase font-bold tracking-widest text-text-dim block mb-2">Foto de Perfil</label>
+                          <div className="flex items-center gap-4">
+                            <input 
+                              type="file"
+                              accept="image/*"
+                              onChange={handleImageUpload} 
+                              className="text-sm text-text-dim file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-bold file:uppercase file:tracking-widest file:bg-white/10 file:text-white hover:file:bg-white/20 transition-all cursor-pointer" 
+                            />
+                            {editPhotoURL && (
+                              <button type="button" onClick={() => setEditPhotoURL("")} className="text-red-400 text-xs font-bold uppercase tracking-widest hover:text-red-300">
+                                Remover
+                              </button>
+                            )}
+                          </div>
+                        </div>
+                        
+                        {editPhotoURL && (
+                          <div className="flex items-center gap-4 mt-2 p-4 bg-white/5 rounded-xl border border-white/5">
+                            <img src={editPhotoURL} onError={(e) => (e.currentTarget.src = "https://ui-avatars.com/api/?name=Error")} className="w-16 h-16 rounded-full object-cover border-2 border-xbox-green" />
+                            <span className="text-xs text-text-dim font-bold uppercase tracking-widest">Preview</span>
+                          </div>
+                        )}
+                      </div>
+                      
+                      <div className="flex gap-3">
+                        <button 
+                          onClick={() => setIsEditingProfile(false)}
+                          disabled={isSavingProfile}
+                          className="flex-1 bg-white/10 hover:bg-white/20 text-white px-4 py-3 rounded-xl font-bold uppercase tracking-widest text-xs transition-all disabled:opacity-50"
+                        >
+                          Cancelar
+                        </button>
+                        <button 
+                          onClick={handleSaveProfile}
+                          disabled={isSavingProfile || !editDisplayName.trim()}
+                          className="flex-1 bg-xbox-green hover:bg-emerald-600 text-white px-4 py-3 rounded-xl font-bold uppercase tracking-widest text-xs transition-all disabled:opacity-50"
+                        >
+                          {isSavingProfile ? 'Salvando...' : 'Salvar Alterações'}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                
+                {/* Friends Section */}
+                <div className="mb-12 glass p-6 md:p-8 rounded-2xl border border-white/10">
+                  <h3 className="text-xl font-bold flex items-center gap-2 mb-6">
+                    <User className="w-6 h-6 text-xbox-green" /> Meus Amigos ({friends.length})
+                  </h3>
+                  
+                  <div className="mb-6 flex flex-col md:flex-row gap-4 items-end">
+                     <div className="flex-1 w-full">
+                       <label className="text-[10px] uppercase font-bold tracking-widest text-text-dim block mb-2">Seu ID (Envie para um amigo)</label>
+                       <div className="flex items-center gap-2">
+                         <input type="text" readOnly value={user.uid} className="bg-black/50 border border-white/10 rounded-lg px-4 py-2 text-sm text-white w-full outline-none font-mono" />
+                         <button onClick={() => { navigator.clipboard.writeText(user.uid); alert("ID Copiado!"); }} className="bg-white/10 hover:bg-white/20 p-2 rounded-lg text-white font-bold transition-all whitespace-nowrap">
+                           Copiar
+                         </button>
+                       </div>
+                     </div>
+                     <div className="flex-1 w-full">
+                       <label className="text-[10px] uppercase font-bold tracking-widest text-text-dim block mb-2">Buscar Amigo (Nome ou Email)</label>
+                       <div className="flex items-center gap-2">
+                         <input type="text" placeholder="Nome ou Email..." value={friendIdInput} onChange={(e) => setFriendIdInput(e.target.value)} className="bg-black/50 border border-white/10 rounded-lg px-4 py-2 text-sm text-white w-full outline-none focus:border-xbox-green" />
+                         <button onClick={handleSearchFriend} disabled={isSearchingFriend || !friendIdInput.trim()} className="bg-xbox-green hover:bg-emerald-600 disabled:opacity-50 px-4 py-2 rounded-lg text-white font-bold transition-all whitespace-nowrap">
+                           {isSearchingFriend ? '...' : 'Buscar'}
+                         </button>
+                       </div>
+                     </div>
+                  </div>
+                  
+                  {friendError && <p className="text-red-400 text-xs font-bold mb-4">{friendError}</p>}
+                  {friendSuccess && <p className="text-xbox-green text-xs font-bold mb-4">{friendSuccess}</p>}
+                  
+                  {friendSearchResults.length > 0 && (
+                     <div className="mb-6 bg-black/40 p-4 rounded-xl border border-white/10">
+                       <h4 className="text-xs font-bold text-white mb-3 uppercase tracking-widest">Resultados da Busca</h4>
+                       <div className="flex flex-col gap-3">
+                         {friendSearchResults.map(res => (
+                            <div key={res.id} className="flex items-center justify-between bg-white/5 p-3 rounded-lg">
+                               <div className="flex items-center gap-3">
+                                 <img src={res.photoURL || "https://ui-avatars.com/api/?name=Guest"} className="w-8 h-8 rounded-full" />
+                                 <div>
+                                    <p className="text-sm font-bold text-white">{res.displayName}</p>
+                                    <p className="text-xs text-text-dim">{res.email}</p>
+                                 </div>
+                               </div>
+                               <button 
+                                 onClick={() => handleAddFriend(res.id, res)}
+                                 disabled={addingFriend || friends.some(f => f.userId === res.id)}
+                                 className="bg-xbox-green/20 hover:bg-xbox-green text-xbox-green hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold transition-all disabled:opacity-50"
+                               >
+                                 {friends.some(f => f.userId === res.id) ? 'Já Adicionado' : 'Adicionar'}
+                               </button>
+                            </div>
+                         ))}
+                       </div>
+                     </div>
+                  )}
+
+                  {friends.length === 0 ? (
+                    <p className="text-text-dim text-sm text-center py-4">Você ainda não adicionou nenhum amigo.</p>
+                  ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {friends.map((f: any) => (
+                        <div key={f.id} className="bg-black/30 p-4 rounded-xl border border-white/5 flex items-center gap-4">
+                           <img src={f.photoURL || "https://ui-avatars.com/api/?name=Guest"} alt="Friend" className="w-12 h-12 rounded-full object-cover border-2 border-white/10" referrerPolicy="no-referrer" />
+                           <div>
+                             <p className="font-bold text-white text-sm">{f.displayName}</p>
+                             <p className="text-text-dim text-[10px] font-mono">{f.userId.substring(0,10)}...</p>
+                           </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+               <div className="mb-12">
+                  <GlobalLeaderboard />
+               </div>
+
+               <div className="mb-4">
                   <h3 className="text-xl font-bold flex items-center gap-2 mb-6">
                     <Gamepad2 className="w-6 h-6 text-xbox-green" /> Jogos Salvos ({savedGames.length})
                   </h3>
@@ -805,7 +1160,7 @@ export default function App() {
               </button>
 
               <div className="flex flex-col md:flex-row h-full max-h-screen md:max-h-[90vh] overflow-y-auto md:overflow-hidden">
-                <div className="w-full md:w-2/5 aspect-video md:aspect-[3/4] relative group/cover cursor-pointer flex-shrink-0" onClick={() => setIsPlaying(true)}>
+                <div className="w-full md:w-2/5 aspect-video md:aspect-[3/4] relative group/cover cursor-pointer flex-shrink-0" onClick={() => { setActiveJoinCode(undefined); setIsPlaying(true); }}>
                   <PexelsImage 
                     queryName={selectedGame.title}
                     category={selectedGame.category}
@@ -837,7 +1192,46 @@ export default function App() {
                     {selectedGame.description}
                   </p>
                   
+                  
+                  <div className="bg-white/5 p-4 rounded-xl border border-white/10 mb-6 mt-4">
+                    <h3 className="text-white font-bold mb-2 text-sm flex items-center gap-2"><Gamepad2 className="w-4 h-4 text-xbox-green" /> Multiplayer Local</h3>
+                    <p className="text-text-dim text-xs">Conecte vários controles USB ou Bluetooth. O emulador reconhecerá automaticamente o Player 1 e Player 2.</p>
+                  </div>
+                  
+                  <div className="bg-white/5 p-4 rounded-xl border border-white/10 mb-6">
+                    <h3 className="text-white font-bold mb-2 text-sm flex items-center gap-2"><Cloud className="w-4 h-4 text-blue-400" /> Multiplayer Online (Netplay)</h3>
+                    <p className="text-text-dim text-xs mb-3">
+                      {selectedGame.system === 'Mega Drive' 
+                         ? 'Para hospedar, inicie o jogo, e clique em "Netplay" na barra inferior para gerar um código/link. Para entrar no jogo de um amigo, cole o código ou link abaixo:'
+                         : 'Para hospedar ou entrar, inicie o jogo, abra o Menu do Emulador e selecione Netplay. Ou use o código abaixo se suportado:'}
+                    </p>
+                    <div className="flex gap-2">
+                      <input 
+                        type="text" 
+                        placeholder="Código de Join..." 
+                        className="bg-black/50 border border-white/20 rounded-lg px-3 py-2 text-sm text-white flex-1 focus:border-xbox-green outline-none"
+                        value={joinCodeInput}
+                        onChange={(e) => setJoinCodeInput(e.target.value)}
+                      />
+                      <button 
+                        className="bg-xbox-green hover:bg-emerald-600 text-white font-bold px-4 py-2 rounded-lg text-sm transition-all"
+                        onClick={(e) => {
+                           e.stopPropagation();
+                           let code = joinCodeInput.trim();
+                           if (code.includes('join=')) {
+                              code = new URLSearchParams(code.split('?')[1]).get('join') || code;
+                           }
+                           setActiveJoinCode(code);
+                           setIsPlaying(true);
+                        }}
+                      >
+                        Entrar
+                      </button>
+                    </div>
+                  </div>
+                  
                   <div className="grid grid-cols-2 gap-4 mb-8 text-[10px] md:text-xs">
+
                     <div className="bg-white/5 p-3 rounded-lg border border-white/5">
                       <p className="text-xbox-green uppercase tracking-tighter mb-1 font-bold">{t("game.developer")}</p>
                       <p className="text-white font-medium">{selectedGame.system === 'PS1' ? 'Sony / Third Party' : selectedGame.system === 'Mega Drive' ? 'Sega / Third Party' : 'Nintendo / Third Party'}</p>
@@ -877,6 +1271,35 @@ export default function App() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Invitations Notification Overlay */}
+      {invitations.length > 0 && !isPlaying && (
+        <div className="fixed top-4 right-4 z-50 flex flex-col gap-2 w-80 max-w-[calc(100vw-2rem)]">
+          {invitations.map(inv => (
+             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} key={inv.id} className="bg-zinc-900 border border-xbox-green/50 shadow-[0_0_15px_rgba(16,124,16,0.3)] rounded-xl p-4 flex flex-col">
+                <div className="flex justify-between items-start mb-2">
+                   <h4 className="font-bold text-sm text-xbox-green flex items-center gap-2"><Gamepad2 className="w-4 h-4" /> Novo Convite</h4>
+                   <button onClick={() => deleteInvite(inv.id)} className="text-white/40 hover:text-white"><X className="w-4 h-4" /></button>
+                </div>
+                <p className="text-xs text-white mb-3"><strong>{inv.fromUserName}</strong> chamou você para jogar <strong>{inv.gameTitle}</strong>!</p>
+                <button 
+                  onClick={() => {
+                     const game = GAMES.find(g => g.id === inv.gameId) || ps1Games.find(g => g.id === inv.gameId);
+                     if (game) {
+                        setSelectedGame(game);
+                        setActiveJoinCode(inv.joinCode);
+                        setIsPlaying(true);
+                     }
+                     deleteInvite(inv.id);
+                  }}
+                  className="bg-xbox-green hover:bg-emerald-600 text-white font-bold py-2 rounded-md text-xs uppercase tracking-widest transition-all"
+                >
+                  Aceitar e Jogar
+                </button>
+             </motion.div>
+          ))}
+        </div>
+      )}
 
       {/* Game Player */}
       <AnimatePresence>
@@ -918,27 +1341,17 @@ export default function App() {
             {/* ALGORITMO LIMPO: return 0; // State Reset Successful */}
             <div className="flex-1 bg-black relative flex items-center justify-center pointer-events-auto">
               {selectedGame.playUrl ? (
-                selectedGame.system === 'Mega Drive' ? (
-                  <MegaDrivePlayer 
-                    playUrl={selectedGame.playUrl} 
-                    title={`Cloud Session: ${selectedGame.title}`} 
-                    iframeRef={iframeRef as any}
-                  />
-                ) : (
-                  <iframe 
-                    ref={iframeRef}
-                    key={selectedGame.id}
-                    src={selectedGame.playUrl}
-                    className="w-full h-full border-none shadow-2xl"
-                    allow="autoplay; encrypted-media"
-                    allowFullScreen
-                    sandbox="allow-scripts allow-same-origin allow-forms allow-downloads allow-modals"
-                    onLoad={() => {
-                      iframeRef.current?.focus();
-                    }}
-                    title={`Cloud Session: ${selectedGame.title}`}
-                  ></iframe>
-                )
+                <>
+                <CloudPlayer 
+                  playUrl={selectedGame.playUrl} 
+                  title={`Cloud Session: ${selectedGame.title}`} 
+                  iframeRef={iframeRef as any}
+                  joinCode={activeJoinCode}
+                />
+                {activeJoinCode && (
+                  <ChatComponent sessionId={activeJoinCode} />
+                )}
+                </>
               ) : (
                 <div className="flex flex-col items-center justify-center p-8 text-center bg-black w-full h-full">
                   <Gamepad2 className="w-16 h-16 text-white/20 mb-4" />
@@ -960,12 +1373,7 @@ export default function App() {
   );
 }
 
-function NavItem({ icon: Icon, label, active, onClick }: { icon: any, label: string, active: boolean, onClick?: () => void }) {
-  return (
-    <button 
-      onClick={onClick}
-      className={`relative p-3 rounded-2xl transition-all group flex flex-col items-center gap-1 ${active ? "bg-white/10 text-xbox-green shadow-[0_0_15px_rgba(16,124,16,0.3)]" : "text-text-dim hover:text-white hover:bg-white/5"}`}
-    >
+function NavItem({ icon: Icon, label, active, onClick }: { icon: any, label: string, active: boolean, onClick?: () => void }) {  return (    <button       onClick={onClick}      className={`relative p-3 rounded-2xl transition-all group flex flex-col items-center gap-1 flex-shrink-0 ${active ? "bg-white/10 text-xbox-green shadow-[0_0_15px_rgba(16,124,16,0.3)]" : "text-text-dim hover:text-white hover:bg-white/5"}`}    >
       <Icon className={`w-5 h-5 md:w-6 md:h-6 ${active ? "stroke-[3px]" : "stroke-[2px]"}`} />
       <span className="text-[10px] font-bold uppercase tracking-tighter md:hidden">{label}</span>
       {active && (

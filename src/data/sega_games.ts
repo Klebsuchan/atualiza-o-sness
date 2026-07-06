@@ -8,8 +8,8 @@ export const sega_games: Game[] = [
     description: "Jogue Sonic the Hedgehog diretamente no seu navegador!",
     rating: 4.8,
     system: "Mega Drive",
-    imageUrl: "https://upload.wikimedia.org/wikipedia/en/b/ba/Sonic_the_Hedgehog_1_Genesis_box_art.jpg",
-    bannerUrl: "https://upload.wikimedia.org/wikipedia/en/b/ba/Sonic_the_Hedgehog_1_Genesis_box_art.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Sonic%20The%20Hedgehog%20(World)%20(Sonic%20Mega%20Collection).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Sonic%20The%20Hedgehog%20(World)%20(Sonic%20Mega%20Collection).png",
     playUrl: "https://www.retrogames.cc/embed/30299-sonic-the-hedgehog-usa-europe.html"
   },
   {
@@ -19,8 +19,8 @@ export const sega_games: Game[] = [
     description: "Jogue Sonic the Hedgehog 2 diretamente no seu navegador!",
     rating: 4.8,
     system: "Mega Drive",
-    imageUrl: "https://upload.wikimedia.org/wikipedia/en/0/0c/Sonic_2_US_Cover.jpg",
-    bannerUrl: "https://upload.wikimedia.org/wikipedia/en/0/0c/Sonic_2_US_Cover.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Sonic%20The%20Hedgehog%202%20(World).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Sonic%20The%20Hedgehog%202%20(World).png",
     playUrl: "https://www.retrogames.cc/embed/17236-sonic-the-hedgehog-2-world-rev-a.html"
   },
   {
@@ -30,8 +30,8 @@ export const sega_games: Game[] = [
     description: "Jogue Sonic the Hedgehog 3 diretamente no seu navegador!",
     rating: 4.8,
     system: "Mega Drive",
-    imageUrl: "https://upload.wikimedia.org/wikipedia/en/a/a2/Sonic_the_Hedgehog_3_US_box_art.jpg",
-    bannerUrl: "https://upload.wikimedia.org/wikipedia/en/a/a2/Sonic_the_Hedgehog_3_US_box_art.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Sonic%20The%20Hedgehog%203%20(USA)%20(1993-11-20)%20(Sega%20Channel).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Sonic%20The%20Hedgehog%203%20(USA)%20(1993-11-20)%20(Sega%20Channel).png",
     playUrl: "https://www.retrogames.cc/embed/30349-sonic-the-hedgehog-3-usa.html"
   },
   {
@@ -41,8 +41,8 @@ export const sega_games: Game[] = [
     description: "Jogue Sonic & Knuckles diretamente no seu navegador!",
     rating: 4.8,
     system: "Mega Drive",
-    imageUrl: "https://upload.wikimedia.org/wikipedia/en/2/23/Sonic_and_Knuckles_Cover.gif",
-    bannerUrl: "https://upload.wikimedia.org/wikipedia/en/2/23/Sonic_and_Knuckles_Cover.gif",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Sonic%20_%20Knuckles%20(World)%20(Sonic%20Classic%20Collection).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Sonic%20_%20Knuckles%20(World)%20(Sonic%20Classic%20Collection).png",
     playUrl: "https://www.retrogames.cc/embed/28257-sonic-knuckles-world.html"
   },
   {
@@ -52,8 +52,8 @@ export const sega_games: Game[] = [
     description: "Jogue Ultimate Mortal Kombat 3 diretamente no seu navegador!",
     rating: 4.8,
     system: "Mega Drive",
-    imageUrl: "https://upload.wikimedia.org/wikipedia/en/8/8d/Umk3-box.jpg",
-    bannerUrl: "https://upload.wikimedia.org/wikipedia/en/8/8d/Umk3-box.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Ultimate%20Mortal%20Kombat%203%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Ultimate%20Mortal%20Kombat%203%20(USA).png",
     playUrl: "https://www.retrogames.cc/embed/16951-ultimate-mortal-kombat-3-usa.html"
   },
   {
@@ -63,8 +63,8 @@ export const sega_games: Game[] = [
     description: "Jogue Mortal Kombat II diretamente no seu navegador!",
     rating: 4.8,
     system: "Mega Drive",
-    imageUrl: "https://upload.wikimedia.org/wikipedia/en/e/e0/Mortal_Kombat_II_cover.png",
-    bannerUrl: "https://upload.wikimedia.org/wikipedia/en/e/e0/Mortal_Kombat_II_cover.png",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Mortal%20Kombat%20II%20(World).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Mortal%20Kombat%20II%20(World).png",
     playUrl: "https://www.retrogames.cc/embed/30510-mortal-kombat-ii-world.html"
   },
   {
@@ -74,8 +74,8 @@ export const sega_games: Game[] = [
     description: "Jogue Mortal Kombat diretamente no seu navegador!",
     rating: 4.8,
     system: "Mega Drive",
-    imageUrl: "https://upload.wikimedia.org/wikipedia/en/e/e4/Mortal_Kombat_box_art.png",
-    bannerUrl: "https://upload.wikimedia.org/wikipedia/en/e/e4/Mortal_Kombat_box_art.png",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Mortal%20Kombat%20(World)%20(v1.1).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Mortal%20Kombat%20(World)%20(v1.1).png",
     playUrl: "https://www.retrogames.cc/embed/28238-mortal-kombat-world-v1-1.html"
   },
   {
@@ -85,8 +85,8 @@ export const sega_games: Game[] = [
     description: "Jogue Streets of Rage 2 diretamente no seu navegador!",
     rating: 4.8,
     system: "Mega Drive",
-    imageUrl: "https://upload.wikimedia.org/wikipedia/en/5/5f/Streets_of_Rage_2_box.jpg",
-    bannerUrl: "https://upload.wikimedia.org/wikipedia/en/5/5f/Streets_of_Rage_2_box.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Streets%20of%20Rage%202%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Streets%20of%20Rage%202%20(USA).png",
     playUrl: "https://www.retrogames.cc/embed/28481-streets-of-rage-2-usa.html"
   },
   {
@@ -96,8 +96,8 @@ export const sega_games: Game[] = [
     description: "Jogue Streets of Rage 3 diretamente no seu navegador!",
     rating: 4.8,
     system: "Mega Drive",
-    imageUrl: "https://upload.wikimedia.org/wikipedia/en/e/ee/Street_of_Rage_3_box.jpg",
-    bannerUrl: "https://upload.wikimedia.org/wikipedia/en/e/ee/Street_of_Rage_3_box.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Streets%20of%20Rage%203%20(USA).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Streets%20of%20Rage%203%20(USA).png",
     playUrl: "https://www.retrogames.cc/embed/16812-streets-of-rage-3-usa.html"
   },
   {
@@ -107,8 +107,8 @@ export const sega_games: Game[] = [
     description: "Jogue Lion King, The diretamente no seu navegador!",
     rating: 4.8,
     system: "Mega Drive",
-    imageUrl: "https://upload.wikimedia.org/wikipedia/en/c/c5/The_Lion_King_SNES_box_art.jpg",
-    bannerUrl: "https://upload.wikimedia.org/wikipedia/en/c/c5/The_Lion_King_SNES_box_art.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Lion%20King,%20The%20(World)%20(Disney%20Classic%20Games).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Lion%20King,%20The%20(World)%20(Disney%20Classic%20Games).png",
     playUrl: "https://www.retrogames.cc/embed/28248-lion-king-the-world.html"
   },
   {
@@ -118,8 +118,8 @@ export const sega_games: Game[] = [
     description: "Jogue Comix Zone diretamente no seu navegador!",
     rating: 4.8,
     system: "Mega Drive",
-    imageUrl: "https://upload.wikimedia.org/wikipedia/en/6/69/Comix_Zone_cover.jpg",
-    bannerUrl: "https://upload.wikimedia.org/wikipedia/en/6/69/Comix_Zone_cover.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Comix%20Zone%20(USA)%20(Sega%20Smash%20Pack%202).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Comix%20Zone%20(USA)%20(Sega%20Smash%20Pack%202).png",
     playUrl: "https://www.retrogames.cc/embed/29773-comix-zone-usa.html"
   },
   {
@@ -129,8 +129,8 @@ export const sega_games: Game[] = [
     description: "Jogue Golden Axe II diretamente no seu navegador!",
     rating: 4.8,
     system: "Mega Drive",
-    imageUrl: "https://upload.wikimedia.org/wikipedia/en/8/8c/Goldenaxe2.jpg",
-    bannerUrl: "https://upload.wikimedia.org/wikipedia/en/8/8c/Goldenaxe2.jpg",
+    imageUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Golden%20Axe%20II%20(World).png",
+    bannerUrl: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Golden%20Axe%20II%20(World).png",
     playUrl: "https://www.retrogames.cc/embed/16713-golden-axe-ii-world.html"
   }
 ];
